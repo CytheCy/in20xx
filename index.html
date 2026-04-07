@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>In 20xx — Sci-Fi & Futurism</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Syne:wght@400;500;600;700&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --teal: #2ECFBF;
+      --teal-dim: #1A8A82;
+      --rust: #C4622D;
+      --rust-bright: #E07040;
+      --steel: #8A9BA8;
+      --steel-dim: #4A5A65;
+      --black: #060A0C;
+      --black-mid: #0D1416;
+      --black-light: #151D21;
+      --black-card: #111820;
+      --white: #E8EDF0;
+      --white-dim: #8A9BA8;
+      --border: rgba(46,207,191,0.12);
+      --border-rust: rgba(196,98,45,0.2);
+      --glow-teal: 0 0 40px rgba(46,207,191,0.15);
+      --glow-rust: 0 0 40px rgba(196,98,45,0.15);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Syne', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── NOISE OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.4;
+    }
+
+    /* ─── GRID PATTERN ─── */
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(46,207,191,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(46,207,191,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* ─── TYPOGRAPHY ─── */
+    h1, h2, h3, h4 { font-family: 'Orbitron', monospace; font-weight: 700; letter-spacing: -0.02em; }
+    .mono { font-family: 'IBM Plex Mono', monospace; }
+
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--black-mid); }
+    ::-webkit-scrollbar-thumb { background: var(--teal-dim); }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 64px;
+      background: rgba(6,10,12,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+
+    .nav-logo {
+      font-family: 'Orbitron', monospace;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      color: var(--white);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo span { color: var(--teal); }
+
+    .nav-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--teal);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.7); }
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--steel);
+      text-decoration: none;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0; right: 0;
+      height: 1px;
+      background: var(--teal);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--teal); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+
+    .nav-cta {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--black) !important;
+      background: var(--teal);
+      padding: 8px 20px;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--rust-bright) !important; color: var(--white) !important; }
+    .nav-cta::after { display: none !important; }
+
+    /* ─── HAMBURGER ─── */
+    .nav-burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .nav-burger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--steel);
+      transition: all 0.3s;
+    }
+
+    /* ─── MOBILE NAV ─── */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 64px; left: 0; right: 0;
+      background: rgba(6,10,12,0.97);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 24px 48px 32px;
+      z-index: 999;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--steel); text-decoration: none; }
+    .mobile-nav a:hover { color: var(--teal); }
+
+    /* ─── HERO ─── */
+    #home {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 120px 48px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-line {
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--teal-dim), transparent);
+      opacity: 0.3;
+    }
+
+    .hero-line:nth-child(1) { left: 20%; }
+    .hero-line:nth-child(2) { left: 50%; }
+    .hero-line:nth-child(3) { right: 20%; }
+
+    .hero-scan {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--teal), transparent);
+      opacity: 0.4;
+      animation: scan 8s ease-in-out infinite;
+    }
+
+    @keyframes scan {
+      0% { top: 0; opacity: 0; }
+      10% { opacity: 0.4; }
+      90% { opacity: 0.4; }
+      100% { top: 100%; opacity: 0; }
+    }
+
+    .hero-tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      animation: fadeUp 1s 0.2s both;
+    }
+
+    .hero-tag::before {
+      content: '';
+      display: block;
+      width: 32px; height: 1px;
+      background: var(--teal);
+    }
+
+    .hero-title {
+      font-size: clamp(52px, 8vw, 120px);
+      font-weight: 900;
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      margin-bottom: 32px;
+      animation: fadeUp 1s 0.4s both;
+    }
+
+    .hero-title em {
+      font-style: normal;
+      color: transparent;
+      -webkit-text-stroke: 1px var(--teal);
+    }
+
+    .hero-title .accent { color: var(--rust); }
+
+    .hero-sub {
+      font-size: 18px;
+      color: var(--steel);
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 56px;
+      animation: fadeUp 1s 0.6s both;
+    }
+
+    .hero-sub strong { color: var(--white); font-weight: 600; }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      animation: fadeUp 1s 0.8s both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid;
+      border-radius: 2px;
+      transition: all 0.25s;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--teal);
+      color: var(--black);
+      border-color: var(--teal);
+      font-weight: 700;
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--teal);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      border-color: var(--steel-dim);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--teal);
+      color: var(--teal);
+    }
+
+    .btn-rust {
+      background: transparent;
+      color: var(--rust-bright);
+      border-color: var(--border-rust);
+    }
+
+    .btn-rust:hover {
+      background: var(--rust);
+      color: var(--white);
+      border-color: var(--rust);
+    }
+
+    .btn svg { width: 14px; height: 14px; fill: currentColor; }
+
+    /* cover art float */
+    .hero-cover {
+      position: absolute;
+      right: 8%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: clamp(200px, 28vw, 380px);
+      aspect-ratio: 1;
+      border-radius: 4px;
+      overflow: hidden;
+      animation: fadeUp 1.2s 0.3s both;
+    }
+
+    .hero-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.7) brightness(0.85);
+    }
+
+    .hero-cover::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      box-shadow: var(--glow-teal), inset 0 0 60px rgba(46,207,191,0.04);
+    }
+
+    /* ─── SECTION SHARED ─── */
+    section { padding: 100px 48px; }
+
+    .section-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+      max-width: 80px;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 4vw, 52px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      color: var(--steel);
+      font-size: 16px;
+      max-width: 500px;
+      line-height: 1.7;
+      margin-bottom: 56px;
+    }
+
+    /* ─── EPISODES ─── */
+    #episodes { background: var(--black-mid); }
+
+    .episodes-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .episode-card {
+      background: var(--black-card);
+      display: grid;
+      grid-template-columns: 72px 1fr auto;
+      align-items: center;
+      gap: 24px;
+      padding: 28px 32px;
+      transition: background 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .episode-card:hover { background: var(--black-light); }
+    .episode-card:hover .ep-num { color: var(--teal); }
+    .episode-card:hover .ep-play { opacity: 1; transform: scale(1); }
+
+    .ep-num {
+      font-family: 'Orbitron', monospace;
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--steel-dim);
+      letter-spacing: -0.04em;
+      transition: color 0.2s;
+      line-height: 1;
+    }
+
+    .ep-body {}
+
+    .ep-tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rust-bright);
+      margin-bottom: 6px;
+    }
+
+    .ep-title {
+      font-family: 'Orbitron', monospace;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+
+    .ep-desc {
+      font-size: 13px;
+      color: var(--steel);
+      line-height: 1.5;
+      max-width: 600px;
+    }
+
+    .ep-meta {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: var(--steel-dim);
+      margin-top: 8px;
+    }
+
+    .ep-play {
+      width: 44px; height: 44px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--teal);
+      opacity: 0.5;
+      transform: scale(0.9);
+      transition: all 0.25s;
+      flex-shrink: 0;
+    }
+
+    .ep-play svg { width: 16px; height: 16px; fill: currentColor; margin-left: 2px; }
+
+    /* episode listen row */
+    .ep-listen-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .ep-listen-link {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--steel);
+      text-decoration: none;
+      border: 1px solid var(--steel-dim);
+      padding: 4px 10px;
+      border-radius: 2px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s;
+    }
+
+    .ep-listen-link:hover { border-color: var(--teal); color: var(--teal); }
+
+    /* ─── ABOUT ─── */
+    #about {
+      background: var(--black);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-visual {
+      position: relative;
+      aspect-ratio: 1;
+      max-width: 440px;
+    }
+
+    /* Geometric SVG illustration */
+    .about-art {
+      width: 100%;
+      height: 100%;
+    }
+
+    .about-stat {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 32px;
+    }
+
+    .stat-num {
+      font-family: 'Orbitron', monospace;
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--teal);
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--steel);
+      margin-top: 4px;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+
+    /* ─── TIMELINE PREVIEW ─── */
+    #timeline-preview {
+      background: var(--black-mid);
+      position: relative;
+    }
+
+    .timeline-inner {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 48px;
+      background: var(--black-card);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .timeline-inner::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 48px; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--teal-dim), transparent);
+      opacity: 0.3;
+    }
+
+    .timeline-entry {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 32px;
+      margin-bottom: 32px;
+      align-items: start;
+      padding-left: 24px;
+      position: relative;
+    }
+
+    .timeline-entry::before {
+      content: '';
+      position: absolute;
+      left: -24px;
+      top: 8px;
+      width: 8px; height: 8px;
+      background: var(--teal);
+      border-radius: 50%;
+      box-shadow: 0 0 12px var(--teal);
+    }
+
+    .tl-year {
+      font-family: 'Orbitron', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--teal);
+      letter-spacing: 0.05em;
+    }
+
+    .tl-event-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .tl-event-desc {
+      font-size: 13px;
+      color: var(--steel);
+      line-height: 1.5;
+    }
+
+    .tl-tag {
+      display: inline-block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tl-tag.tech { background: rgba(46,207,191,0.1); color: var(--teal); }
+    .tl-tag.social { background: rgba(196,98,45,0.1); color: var(--rust-bright); }
+    .tl-tag.crisis { background: rgba(220,50,50,0.1); color: #E05050; }
+
+    /* ─── STORY SUBMISSION ─── */
+    #submit {
+      background: var(--black);
+      text-align: center;
+    }
+
+    .submit-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 72px 64px;
+      border: 1px solid var(--border-rust);
+      border-radius: 4px;
+      position: relative;
+      background: var(--black-card);
+      overflow: hidden;
+    }
+
+    .submit-inner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(196,98,45,0.06), transparent 70%);
+    }
+
+    .submit-inner .section-label { justify-content: center; }
+    .submit-inner .section-label::after { display: none; }
+    .submit-inner .section-label::before { content: ''; flex: 0; width: 32px; height: 1px; background: var(--rust); }
+
+    .submit-inner .section-title { font-size: clamp(22px, 3.5vw, 40px); }
+
+    .submit-inner .section-desc {
+      max-width: 100%;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ─── PLATFORMS STRIP ─── */
+    .platforms-strip {
+      background: var(--black-mid);
+      padding: 32px 48px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .platforms-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .platform-link {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--steel);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s;
+    }
+
+    .platform-link:hover { color: var(--teal); }
+
+    .platform-link .dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      padding: 60px 48px 40px;
+      border-top: 1px solid var(--border);
+      background: var(--black);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+
+    .footer-brand-name {
+      font-family: 'Orbitron', monospace;
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .footer-brand-name span { color: var(--teal); }
+
+    .footer-desc {
+      font-size: 13px;
+      color: var(--steel);
+      line-height: 1.7;
+      max-width: 320px;
+    }
+
+    .footer-col-title {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: var(--steel);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-copy {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: var(--steel-dim);
+      letter-spacing: 0.05em;
+    }
+
+    .rss-btn {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--rust-bright);
+      border: 1px solid var(--border-rust);
+      padding: 6px 14px;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .rss-btn:hover { background: var(--rust); color: var(--white); }
+
+    /* ─── DIVIDER ─── */
+    .hr {
+      height: 1px;
+      background: var(--border);
+      margin: 0 48px;
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s, transform 0.7s;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── CORNER MARKS ─── */
+    .corner-marks {
+      position: relative;
+    }
+
+    .corner-marks::before, .corner-marks::after {
+      content: '';
+      position: absolute;
+      width: 12px; height: 12px;
+      border-color: var(--teal);
+      border-style: solid;
+      opacity: 0.4;
+    }
+
+    .corner-marks::before { top: 0; left: 0; border-width: 1px 0 0 1px; }
+    .corner-marks::after { top: 0; right: 0; border-width: 1px 1px 0 0; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .hero-cover { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-visual { display: none; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .nav-burger { display: flex; }
+      section { padding: 72px 24px; }
+      #home { padding: 100px 24px 72px; }
+      .episode-card { grid-template-columns: 48px 1fr; gap: 16px; padding: 20px 20px; }
+      .ep-play { display: none; }
+      .submit-inner { padding: 48px 28px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+      .hero-ctas { flex-direction: column; }
+      .btn { justify-content: center; }
+      .platforms-inner { gap: 24px; }
+      .timeline-entry { grid-template-columns: 80px 1fr; gap: 20px; }
+      footer { padding: 48px 24px 32px; }
+      .hr { margin: 0 24px; }
+      .platforms-strip { padding: 28px 24px; }
+    }
+
+    /* ─── PAGE SECTIONS ─── */
+    .page-section { display: none; }
+    .page-section.active { display: block; }
+
+    /* ─── EPISODES PAGE ─── */
+    .episodes-page-header {
+      padding: 140px 48px 72px;
+      background: var(--black-mid);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .episodes-page-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--teal-dim), transparent);
+      opacity: 0.5;
+    }
+
+    .episodes-full { padding: 60px 48px 100px; }
+
+    .filter-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 7px 16px;
+      border: 1px solid var(--steel-dim);
+      border-radius: 2px;
+      background: transparent;
+      color: var(--steel);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      border-color: var(--teal);
+      color: var(--teal);
+    }
+
+    @media (max-width: 768px) {
+      .episodes-page-header { padding: 100px 24px 48px; }
+      .episodes-full { padding: 40px 24px 80px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="#" class="nav-logo" onclick="showPage('home')">
+    <div class="nav-dot"></div>
+    IN 20<span>xx</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#" onclick="showPage('home'); return false;">Home</a></li>
+    <li><a href="#" onclick="showPage('episodes'); return false;">Episodes</a></li>
+    <li><a href="https://www.youtube.com/@In20xxSciFiandFuturism" target="_blank">YouTube</a></li>
+    <li><a href="timeline.html">Timeline</a></li>
+    <li><a href="https://redcircle.com" target="_blank" class="nav-cta">Subscribe</a></li>
+  </ul>
+  <button class="nav-burger" id="burgerBtn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="#" onclick="showPage('home'); closeMobileNav(); return false;">Home</a>
+  <a href="#" onclick="showPage('episodes'); closeMobileNav(); return false;">Episodes</a>
+  <a href="https://www.youtube.com/@In20xxSciFiandFuturism" target="_blank">YouTube</a>
+  <a href="#" onclick="showPage('timeline'); closeMobileNav(); return false;">Timeline</a>
+  <a href="https://redcircle.com" target="_blank">Subscribe →</a>
+</div>
+
+<!-- ═══════════════════════════════ HOME PAGE ═══════════════════════════════ -->
+<div id="page-home" class="page-section active">
+
+  <!-- HERO -->
+  <section id="home" class="grid-bg">
+    <div class="hero-line"></div>
+    <div class="hero-line"></div>
+    <div class="hero-line"></div>
+    <div class="hero-scan"></div>
+
+    <div class="hero-tag">Speculative Fiction · Futurism · Technology</div>
+
+    <h1 class="hero-title">
+      The Future<br/>
+      <em>Doesn't</em><br/>
+      <span class="accent">Wait</span>
+    </h1>
+
+    <p class="hero-sub">
+      What if <strong>our greatest fears about the future come true</strong>?
+      Immersive storytelling exploring the ever-shifting frontier of
+      technology, society, and survival. Catastrophes and transformations — the answer is always <strong>both</strong>.
+    </p>
+
+    <div class="hero-ctas">
+      <a href="https://redcircle.com" target="_blank" class="btn btn-primary">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+        Subscribe on RedCircle
+      </a>
+      <a href="https://open.spotify.com" target="_blank" class="btn btn-secondary">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+        Spotify
+      </a>
+      <a href="https://podcasts.apple.com" target="_blank" class="btn btn-secondary">
+        <svg viewBox="0 0 24 24"><path d="M18.5 0h-13C2.5 0 0 2.5 0 5.5v13C0 21.5 2.5 24 5.5 24h13c3 0 5.5-2.5 5.5-5.5v-13C24 2.5 21.5 0 18.5 0zM12 3.5c2.2 0 4 1.8 4 4v.3c1.2.5 2 1.6 2 2.9 0 1.7-1.3 3-3 3-.5 0-.9-.1-1.3-.3-.4.7-1.1 1.3-1.9 1.5l.5 4.2c.1.5-.3 1-.8 1H12.5c-.5 0-.9-.5-.8-1l.5-4.2c-.8-.2-1.5-.8-1.9-1.5-.4.2-.8.3-1.3.3-1.7 0-3-1.3-3-3 0-1.3.8-2.4 2-2.9V7.5c0-2.2 1.8-4 4-4zm0 1.5c-1.4 0-2.5 1.1-2.5 2.5v.9c-.8.3-1.5 1.1-1.5 2.1 0 1.1.9 2 2 2 .5 0 .9-.2 1.2-.5.3.3.7.5 1.2.5s.9-.2 1.2-.5c.3.3.7.5 1.2.5 1.1 0 2-.9 2-2 0-1-.7-1.8-1.5-2.1v-.9C14.5 6.1 13.4 5 12 5z"/></svg>
+        Apple Podcasts
+      </a>
+      <a href="timeline.html" class="btn btn-rust">
+        ◈ View Timeline
+      </a>
+    </div>
+
+    <div class="hero-cover">
+      <img src="podcast_cover.png" alt="In 20xx Sci-Fi & Futurism podcast cover" />
+    </div>
+  </section>
+
+  <!-- LATEST EPISODES -->
+  <section id="episodes-home" style="padding-top:80px; padding-bottom:80px; background: var(--black-mid);">
+    <div class="section-label">Latest Episodes</div>
+    <h2 class="section-title reveal">Transmissions<br/>from the Edge</h2>
+    <p class="section-desc reveal">Five dispatches from futures worth fearing — and wanting.</p>
+
+    <div class="episodes-grid reveal">
+
+      <div class="episode-card">
+        <div class="ep-num">05</div>
+        <div class="ep-body">
+          <div class="ep-tag">Latest · Technology</div>
+          <div class="ep-title">The Architect of Forgetting</div>
+          <div class="ep-desc">When memory becomes a subscription service, who controls what you remember? A deep dive into neural data markets and cognitive sovereignty.</div>
+          <div class="ep-listen-row">
+            <a href="https://open.spotify.com" class="ep-listen-link" target="_blank">▶ Spotify</a>
+            <a href="https://podcasts.apple.com" class="ep-listen-link" target="_blank">▶ Apple</a>
+            <a href="https://redcircle.com" class="ep-listen-link" target="_blank">▶ RedCircle</a>
+          </div>
+        </div>
+        <div class="ep-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
+
+      <div class="episode-card">
+        <div class="ep-num">04</div>
+        <div class="ep-body">
+          <div class="ep-tag">Climate · Survival</div>
+          <div class="ep-title">Meridian Protocol</div>
+          <div class="ep-desc">In 2041, three billion people live in permanent migration. The story of the last city that stood still — and why it fell.</div>
+          <div class="ep-listen-row">
+            <a href="https://open.spotify.com" class="ep-listen-link" target="_blank">▶ Spotify</a>
+            <a href="https://podcasts.apple.com" class="ep-listen-link" target="_blank">▶ Apple</a>
+            <a href="https://redcircle.com" class="ep-listen-link" target="_blank">▶ RedCircle</a>
+          </div>
+        </div>
+        <div class="ep-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
+
+      <div class="episode-card">
+        <div class="ep-num">03</div>
+        <div class="ep-body">
+          <div class="ep-tag">AI · Society</div>
+          <div class="ep-title">The Consensus Engine</div>
+          <div class="ep-desc">Democracy runs on algorithms now. What happens when the machine disagrees with the majority — and it's right?</div>
+          <div class="ep-listen-row">
+            <a href="https://open.spotify.com" class="ep-listen-link" target="_blank">▶ Spotify</a>
+            <a href="https://podcasts.apple.com" class="ep-listen-link" target="_blank">▶ Apple</a>
+            <a href="https://redcircle.com" class="ep-listen-link" target="_blank">▶ RedCircle</a>
+          </div>
+        </div>
+        <div class="ep-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
+
+      <div class="episode-card">
+        <div class="ep-num">02</div>
+        <div class="ep-body">
+          <div class="ep-tag">Biology · Ethics</div>
+          <div class="ep-title">Species Optional</div>
+          <div class="ep-desc">Gene editing becomes consumer tech. A family navigates what it means to be human when human is just one option on the menu.</div>
+          <div class="ep-listen-row">
+            <a href="https://open.spotify.com" class="ep-listen-link" target="_blank">▶ Spotify</a>
+            <a href="https://podcasts.apple.com" class="ep-listen-link" target="_blank">▶ Apple</a>
+            <a href="https://redcircle.com" class="ep-listen-link" target="_blank">▶ RedCircle</a>
+          </div>
+        </div>
+        <div class="ep-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
+
+      <div class="episode-card">
+        <div class="ep-num">01</div>
+        <div class="ep-body">
+          <div class="ep-tag">Pilot · Civilization</div>
+          <div class="ep-title">In 20xx — Prologue</div>
+          <div class="ep-desc">Where do we begin? A tour through the landscapes we're building — knowingly and not — as technology accelerates past our ability to govern it.</div>
+          <div class="ep-listen-row">
+            <a href="https://open.spotify.com" class="ep-listen-link" target="_blank">▶ Spotify</a>
+            <a href="https://podcasts.apple.com" class="ep-listen-link" target="_blank">▶ Apple</a>
+            <a href="https://redcircle.com" class="ep-listen-link" target="_blank">▶ RedCircle</a>
+          </div>
+        </div>
+        <div class="ep-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
+    </div>
+
+    <div style="margin-top:32px; text-align:right;">
+      <a href="#" onclick="showPage('episodes'); return false;" class="btn btn-secondary" style="display:inline-flex;">All Episodes →</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="about-visual">
+        <!-- Geometric SVG illustration -->
+        <svg class="about-art" viewBox="0 0 440 440" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Grid lines -->
+          <line x1="0" y1="110" x2="440" y2="110" stroke="rgba(46,207,191,0.08)" stroke-width="1"/>
+          <line x1="0" y1="220" x2="440" y2="220" stroke="rgba(46,207,191,0.08)" stroke-width="1"/>
+          <line x1="0" y1="330" x2="440" y2="330" stroke="rgba(46,207,191,0.08)" stroke-width="1"/>
+          <line x1="110" y1="0" x2="110" y2="440" stroke="rgba(46,207,191,0.08)" stroke-width="1"/>
+          <line x1="220" y1="0" x2="220" y2="440" stroke="rgba(46,207,191,0.08)" stroke-width="1"/>
+          <line x1="330" y1="0" x2="330" y2="440" stroke="rgba(46,207,191,0.08)" stroke-width="1"/>
+          <!-- Outer ring -->
+          <circle cx="220" cy="220" r="200" stroke="rgba(46,207,191,0.1)" stroke-width="1"/>
+          <circle cx="220" cy="220" r="150" stroke="rgba(46,207,191,0.08)" stroke-width="1" stroke-dasharray="4 8"/>
+          <circle cx="220" cy="220" r="80" stroke="rgba(196,98,45,0.15)" stroke-width="1"/>
+          <!-- Core -->
+          <circle cx="220" cy="220" r="28" fill="rgba(196,98,45,0.12)" stroke="#C4622D" stroke-width="1"/>
+          <circle cx="220" cy="220" r="8" fill="#C4622D" opacity="0.8"/>
+          <!-- Orbit dot -->
+          <circle cx="370" cy="220" r="6" fill="#2ECFBF" opacity="0.9"/>
+          <circle cx="70" cy="220" r="4" fill="#2ECFBF" opacity="0.5"/>
+          <circle cx="220" cy="70" r="5" fill="#8A9BA8" opacity="0.6"/>
+          <circle cx="220" cy="370" r="3" fill="#8A9BA8" opacity="0.4"/>
+          <!-- Cross hairs -->
+          <line x1="220" y1="40" x2="220" y2="400" stroke="rgba(46,207,191,0.12)" stroke-width="1"/>
+          <line x1="40" y1="220" x2="400" y2="220" stroke="rgba(46,207,191,0.12)" stroke-width="1"/>
+          <!-- Hexagonal marks -->
+          <polygon points="220,120 258,140 258,180 220,200 182,180 182,140" stroke="rgba(46,207,191,0.18)" stroke-width="1" fill="none"/>
+          <!-- Corner brackets -->
+          <path d="M20 20 L20 50 M20 20 L50 20" stroke="rgba(46,207,191,0.4)" stroke-width="1.5"/>
+          <path d="M420 20 L420 50 M420 20 L390 20" stroke="rgba(46,207,191,0.4)" stroke-width="1.5"/>
+          <path d="M20 420 L20 390 M20 420 L50 420" stroke="rgba(46,207,191,0.4)" stroke-width="1.5"/>
+          <path d="M420 420 L420 390 M420 420 L390 420" stroke="rgba(46,207,191,0.4)" stroke-width="1.5"/>
+          <!-- Data fragments -->
+          <rect x="60" y="160" width="40" height="6" fill="rgba(46,207,191,0.15)" rx="1"/>
+          <rect x="60" y="172" width="24" height="6" fill="rgba(46,207,191,0.08)" rx="1"/>
+          <rect x="60" y="184" width="32" height="6" fill="rgba(46,207,191,0.06)" rx="1"/>
+          <rect x="340" y="250" width="40" height="6" fill="rgba(196,98,45,0.15)" rx="1"/>
+          <rect x="340" y="262" width="28" height="6" fill="rgba(196,98,45,0.08)" rx="1"/>
+        </svg>
+      </div>
+      <div>
+        <div class="section-label reveal">About the Series</div>
+        <h2 class="section-title reveal">Speculative Fiction<br/>as a Map</h2>
+        <p style="color:var(--steel); font-size:15px; line-height:1.75; margin-bottom:32px;" class="reveal">
+          Using immersive storytelling, <em>In 20xx</em> places listeners inside future landscapes shaped by real technological trajectories. This isn't prediction — it's preparation. We explore what happens when systems change faster than people do.
+        </p>
+        <p style="color:var(--steel); font-size:15px; line-height:1.75; margin-bottom:40px;" class="reveal">
+          Think-provoking but accessible. Big-picture speculation grounded in research. Slightly comedic. Completely earnest about the stakes.
+        </p>
+        <div class="stats-row reveal">
+          <div class="about-stat">
+            <div class="stat-num">20xx</div>
+            <div class="stat-label">The era we're mapping</div>
+          </div>
+          <div class="about-stat">
+            <div class="stat-num">∞</div>
+            <div class="stat-label">Possible futures</div>
+          </div>
+          <div class="about-stat">
+            <div class="stat-num">01</div>
+            <div class="stat-label">Question that matters</div>
+          </div>
+        </div>
+        <a href="https://www.youtube.com/@In20xxSciFiandFuturism" target="_blank" class="btn btn-secondary reveal">Watch on YouTube →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE PREVIEW -->
+  <section id="timeline-preview">
+    <div class="section-label reveal">The Timeline</div>
+    <h2 class="section-title reveal">What comes next —<br/>and when</h2>
+    <p class="section-desc reveal">A curated map of the future events, technological shifts, and civilizational turning points explored across episodes.</p>
+
+    <div class="timeline-inner reveal">
+      <div class="timeline-entry">
+        <div>
+          <div class="tl-year">2031</div>
+        </div>
+        <div>
+          <div class="tl-tag tech">Technology</div>
+          <div class="tl-event-title">Neural Interface Standardization Act</div>
+          <div class="tl-event-desc">Brain-computer interfaces become consumer products. The first regulatory battles over cognitive data begin.</div>
+        </div>
+      </div>
+
+      <div class="timeline-entry">
+        <div>
+          <div class="tl-year">2038</div>
+        </div>
+        <div>
+          <div class="tl-tag crisis">Crisis</div>
+          <div class="tl-event-title">The Great Displacement</div>
+          <div class="tl-event-desc">Automation claims 40% of service sector jobs within 18 months. Universal Basic Services legislation passed in 22 countries.</div>
+        </div>
+      </div>
+
+      <div class="timeline-entry">
+        <div>
+          <div class="tl-year">2044</div>
+        </div>
+        <div>
+          <div class="tl-tag social">Social</div>
+          <div class="tl-event-title">Post-Geography Cities</div>
+          <div class="tl-event-desc">First fully distributed municipal governance — a city of 3 million with no geographic center. The model spreads.</div>
+        </div>
+      </div>
+
+      <div class="timeline-entry">
+        <div>
+          <div class="tl-year">20xx</div>
+        </div>
+        <div>
+          <div class="tl-tag tech">Unknown</div>
+          <div class="tl-event-title">The Threshold</div>
+          <div class="tl-event-desc">Something changes everything. We don't know what yet — that's the point.</div>
+        </div>
+      </div>
+
+      <div style="margin-top:32px; text-align:center;">
+        <a href="timeline.html" class="btn btn-rust" style="display:inline-flex;">Explore Full Timeline →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY SUBMISSION -->
+  <section id="submit">
+    <div class="submit-inner corner-marks">
+      <div class="section-label" style="justify-content:center;"><span style="color:var(--rust-bright); letter-spacing:0.2em;">Open Call</span></div>
+      <h2 class="section-title" style="margin-bottom:20px;">Write the Future<br/>with Us</h2>
+      <p class="section-desc" style="margin:0 auto 40px; text-align:center;">
+        We're accepting short speculative fiction from independent writers. Your story could become an episode. Futures built by many voices are harder to get wrong.
+      </p>
+      <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+        <a href="mailto:submit@in20xx.com" class="btn btn-rust">Submit Your Short Story</a>
+        <a href="#" class="btn btn-secondary">Read Submission Guidelines</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLATFORMS STRIP -->
+  <div class="platforms-strip">
+    <div class="platforms-inner">
+      <a href="https://redcircle.com" class="platform-link" target="_blank"><div class="dot"></div>RedCircle</a>
+      <a href="https://open.spotify.com" class="platform-link" target="_blank"><div class="dot"></div>Spotify</a>
+      <a href="https://podcasts.apple.com" class="platform-link" target="_blank"><div class="dot"></div>Apple Podcasts</a>
+      <a href="https://www.youtube.com/@In20xxSciFiandFuturism" class="platform-link" target="_blank"><div class="dot"></div>YouTube</a>
+      <a href="https://feeds.redcircle.com" class="platform-link" target="_blank"><div class="dot" style="background:var(--rust-bright);"></div>RSS Feed</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">IN 20<span>xx</span> — SCI-FI & FUTURISM</div>
+        <p class="footer-desc">Speculative fiction takes a progressive journey into the future. Using storytelling to immerse listeners in landscapes shaped by technology, fear, and transformation.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Listen</div>
+        <ul class="footer-links">
+          <li><a href="https://redcircle.com" target="_blank">RedCircle</a></li>
+          <li><a href="https://open.spotify.com" target="_blank">Spotify</a></li>
+          <li><a href="https://podcasts.apple.com" target="_blank">Apple Podcasts</a></li>
+          <li><a href="https://www.youtube.com/@In20xxSciFiandFuturism" target="_blank">YouTube</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Explore</div>
+        <ul class="footer-links">
+          <li><a href="#" onclick="showPage('episodes'); return false;">All Episodes</a></li>
+          <li><a href="timeline.html">Timeline</a></li>
+          <li><a href="mailto:submit@in20xx.com">Submit a Story</a></li>
+          <li><a href="mailto:hello@in20xx.com">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 In 20xx Sci-Fi & Futurism. All rights reserved.</div>
+      <a href="https://feeds.redcircle.com" class="rss-btn" target="_blank">RSS Feed</a>
+    </div>
+  </footer>
+
+</div><!-- end page-home -->
+
+<!-- ═══════════════════════════════ EPISODES PAGE ═══════════════════════════════ -->
+<div id="page-episodes" class="page-section">
+
+  <div class="episodes-page-header grid-bg">
+    <div class="section-label">All Transmissions</div>
+    <h1 class="section-title">Episode Archive</h1>
+    <p class="section-desc" style="margin-bottom:0;">Every dispatch from the edge of tomorrow. Listen anywhere.</p>
+  </div>
+
+  <div class="episodes-full">
+    <div class="filter-row">
+      <button class="filter-btn active">All</button>
+      <button class="filter-btn">Technology</button>
+      <button class="filter-btn">Climate</button>
+      <button class="filter-btn">Society</button>
+      <button class="filter-btn">Biology</button>
+    </div>
+
+    <div class="episodes-grid">
+      <div class="episode-card">
+        <div class="ep-num">05</div>
+        <div class="ep-body">
+          <div class="ep-tag">Technology · Memory</div>
+          <div class="ep-title">The Architect of Forgetting</div>
+          <div class="ep-desc">When memory becomes a subscription service, who controls what you remember? A deep dive into neural data markets and cognitive sovereignty.</div>
+          <div class="ep-listen-row">
+            <a href="https://open.spotify.com" class="ep-listen-link" target="_blank">▶ Spotify</a>
+            <a href="https://podcasts.apple.com" class="ep-listen-link" target="_blank">▶ Apple</a>
+            <a href="https://redcircle.com" class="ep-listen-link" target="_blank">▶ RedCircle</a>
+            <a href="https://www.youtube.com/@In20xxSciFiandFuturism" class="ep-listen-link" target="_blank">▶ YouTube</a>
+          </div>
+          <div class="ep-meta">Duration: 38 min · Released Jan 2025</div>
+        </div>
+        <div class="ep-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
+
+      <div class="episode-card">
+        <div class="ep-num">04</div>
+        <div class="ep-body">
+          <div class="ep-tag">Climate · Survival</div>
+          <div class="ep-title">Meridian Protocol</div>
+          <div class="ep-desc">In 2041, three billion people live in permanent migration. The story of the last city that stood still — and why it fell.</div>
+          <div class="ep-listen-row">
+            <a href="https://open.spotify.com" class="ep-listen-link" target="_blank">▶ Spotify</a>
+            <a href="https://podcasts.apple.com" class="ep-listen-link" target="_blank">▶ Apple</a>
+            <a href="https://redcircle.com" class="ep-listen-link" target="_blank">▶ RedCircle</a>
+            <a href="https://www.youtube.com/@In20xxSciFiandFuturism" class="ep-listen-link" target="_blank">▶ YouTube</a>
+          </div>
+          <div class="ep-meta">Duration: 44 min · Released Nov 2024</div>
+        </div>
+        <div class="ep-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
+
+      <div class="episode-card">
+        <div class="ep-num">03</div>
+        <div class="ep-body">
+          <div class="ep-tag">AI · Society</div>
+          <div class="ep-title">The Consensus Engine</div>
+          <div class="ep-desc">Democracy runs on algorithms now. What happens when the machine disagrees with the majority — and it's right?</div>
+          <div class="ep-listen-row">
+            <a href="https://open.spotify.com" class="ep-listen-link" target="_blank">▶ Spotify</a>
+            <a href="https://podcasts.apple.com" class="ep-listen-link" target="_blank">▶ Apple</a>
+            <a href="https://redcircle.com" class="ep-listen-link" target="_blank">▶ RedCircle</a>
+            <a href="https://www.youtube.com/@In20xxSciFiandFuturism" class="ep-listen-link" target="_blank">▶ YouTube</a>
+          </div>
+          <div class="ep-meta">Duration: 51 min · Released Sep 2024</div>
+        </div>
+        <div class="ep-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
+
+      <div class="episode-card">
+        <div class="ep-num">02</div>
+        <div class="ep-body">
+          <div class="ep-tag">Biology · Ethics</div>
+          <div class="ep-title">Species Optional</div>
+          <div class="ep-desc">Gene editing becomes consumer tech. A family navigates what it means to be human when human is just one option on the menu.</div>
+          <div class="ep-listen-row">
+            <a href="https://open.spotify.com" class="ep-listen-link" target="_blank">▶ Spotify</a>
+            <a href="https://podcasts.apple.com" class="ep-listen-link" target="_blank">▶ Apple</a>
+            <a href="https://redcircle.com" class="ep-listen-link" target="_blank">▶ RedCircle</a>
+            <a href="https://www.youtube.com/@In20xxSciFiandFuturism" class="ep-listen-link" target="_blank">▶ YouTube</a>
+          </div>
+          <div class="ep-meta">Duration: 42 min · Released Jul 2024</div>
+        </div>
+        <div class="ep-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
+
+      <div class="episode-card">
+        <div class="ep-num">01</div>
+        <div class="ep-body">
+          <div class="ep-tag">Pilot · Civilization</div>
+          <div class="ep-title">In 20xx — Prologue</div>
+          <div class="ep-desc">Where do we begin? A tour through the landscapes we're building — knowingly and not — as technology accelerates past our ability to govern it.</div>
+          <div class="ep-listen-row">
+            <a href="https://open.spotify.com" class="ep-listen-link" target="_blank">▶ Spotify</a>
+            <a href="https://podcasts.apple.com" class="ep-listen-link" target="_blank">▶ Apple</a>
+            <a href="https://redcircle.com" class="ep-listen-link" target="_blank">▶ RedCircle</a>
+            <a href="https://www.youtube.com/@In20xxSciFiandFuturism" class="ep-listen-link" target="_blank">▶ YouTube</a>
+          </div>
+          <div class="ep-meta">Duration: 29 min · Released May 2024</div>
+        </div>
+        <div class="ep-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="platforms-strip">
+    <div class="platforms-inner">
+      <a href="https://redcircle.com" class="platform-link" target="_blank"><div class="dot"></div>RedCircle</a>
+      <a href="https://open.spotify.com" class="platform-link" target="_blank"><div class="dot"></div>Spotify</a>
+      <a href="https://podcasts.apple.com" class="platform-link" target="_blank"><div class="dot"></div>Apple Podcasts</a>
+      <a href="https://www.youtube.com/@In20xxSciFiandFuturism" class="platform-link" target="_blank"><div class="dot"></div>YouTube</a>
+      <a href="https://feeds.redcircle.com" class="platform-link" target="_blank"><div class="dot" style="background:var(--rust-bright);"></div>RSS Feed</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <div class="footer-copy">© 2025 In 20xx Sci-Fi & Futurism</div>
+      <a href="#" onclick="showPage('home'); return false;" class="btn btn-secondary" style="font-size:10px; padding:6px 16px;">← Home</a>
+    </div>
+  </footer>
+
+</div><!-- end page-episodes -->
+
+<!-- ═══════════════════════════════ TIMELINE PAGE ═══════════════════════════════ -->
+<div id="page-timeline" class="page-section">
+
+  <div class="episodes-page-header grid-bg">
+    <div class="section-label" style="color:var(--rust-bright);">Future Cartography</div>
+    <h1 class="section-title">The Timeline</h1>
+    <p class="section-desc" style="margin-bottom:0;">A map of the futures explored in <em>In 20xx</em>. Events, turning points, and the questions we can't stop asking.</p>
+  </div>
+
+  <section style="padding: 72px 48px 120px; background: var(--black);">
+    <div style="max-width: 800px; margin: 0 auto; position: relative; padding-left: 40px; border-left: 1px solid var(--border);">
+
+      <div style="margin-bottom: 48px; position:relative;">
+        <div style="position:absolute; left:-48px; top:6px; width:14px; height:14px; border:1px solid var(--teal); border-radius:50%; background:var(--black); display:flex; align-items:center; justify-content:center;">
+          <div style="width:6px; height:6px; background:var(--teal); border-radius:50;"></div>
+        </div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--teal); letter-spacing:0.15em; margin-bottom:8px;">NOW — 2025</div>
+        <div style="font-family:'Orbitron',monospace; font-size:17px; color:var(--white); margin-bottom:8px;">The Accelerating Present</div>
+        <p style="font-size:14px; color:var(--steel); line-height:1.7;">AI permeates daily infrastructure. Autonomous systems make decisions previously reserved for humans. The gap between invention and regulation widens.</p>
+      </div>
+
+      <div style="margin-bottom: 48px; position:relative;">
+        <div style="position:absolute; left:-48px; top:6px; width:14px; height:14px; border:1px solid var(--teal); border-radius:50%; background:var(--black); display:flex; align-items:center; justify-content:center;">
+          <div style="width:6px; height:6px; background:var(--teal); border-radius:50%;"></div>
+        </div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--teal); letter-spacing:0.15em; margin-bottom:8px;">2028–2031</div>
+        <div class="tl-tag tech" style="margin-bottom:8px;">Technology</div>
+        <div style="font-family:'Orbitron',monospace; font-size:17px; color:var(--white); margin-bottom:8px;">Neural Interface Era</div>
+        <p style="font-size:14px; color:var(--steel); line-height:1.7;">Brain-computer interfaces move from medical devices to consumer products. Cognitive data becomes the world's most contested resource. The first lawsuits over memory ownership are filed.</p>
+        <div style="margin-top:12px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--rust-bright);">→ Explored in Ep. 05: The Architect of Forgetting</div>
+      </div>
+
+      <div style="margin-bottom: 48px; position:relative;">
+        <div style="position:absolute; left:-48px; top:6px; width:14px; height:14px; border:1px solid var(--rust); border-radius:50%; background:var(--black); display:flex; align-items:center; justify-content:center;">
+          <div style="width:6px; height:6px; background:var(--rust); border-radius:50%;"></div>
+        </div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--rust-bright); letter-spacing:0.15em; margin-bottom:8px;">2035–2040</div>
+        <div class="tl-tag crisis" style="margin-bottom:8px;">Crisis</div>
+        <div style="font-family:'Orbitron',monospace; font-size:17px; color:var(--white); margin-bottom:8px;">The Great Displacement</div>
+        <p style="font-size:14px; color:var(--steel); line-height:1.7;">Mass automation restructures economies faster than social safety nets can adapt. New civic architectures emerge from necessity — some hopeful, some authoritarian. The question isn't jobs, it's identity.</p>
+        <div style="margin-top:12px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--rust-bright);">→ Explored in Ep. 03: The Consensus Engine</div>
+      </div>
+
+      <div style="margin-bottom: 48px; position:relative;">
+        <div style="position:absolute; left:-48px; top:6px; width:14px; height:14px; border:1px solid var(--teal); border-radius:50%; background:var(--black); display:flex; align-items:center; justify-content:center;">
+          <div style="width:6px; height:6px; background:var(--teal); border-radius:50%;"></div>
+        </div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--teal); letter-spacing:0.15em; margin-bottom:8px;">2041–2048</div>
+        <div class="tl-tag social" style="margin-bottom:8px;">Social</div>
+        <div style="font-family:'Orbitron',monospace; font-size:17px; color:var(--white); margin-bottom:8px;">Planetary Migration Period</div>
+        <p style="font-size:14px; color:var(--steel); line-height:1.7;">Climate-driven displacement reshapes civilization's geography. New political entities emerge. "Home" becomes a legal concept rather than a physical one. Some find freedom in the chaos.</p>
+        <div style="margin-top:12px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--rust-bright);">→ Explored in Ep. 04: Meridian Protocol</div>
+      </div>
+
+      <div style="position:relative;">
+        <div style="position:absolute; left:-48px; top:6px; width:14px; height:14px; border:1px solid var(--steel-dim); border-radius:50%; background:var(--black); display:flex; align-items:center; justify-content:center;">
+          <div style="width:6px; height:6px; background:var(--steel-dim); border-radius:50%;"></div>
+        </div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--steel); letter-spacing:0.15em; margin-bottom:8px;">20xx</div>
+        <div class="tl-tag" style="background:rgba(138,155,168,0.1); color:var(--steel); margin-bottom:8px;">Unknown</div>
+        <div style="font-family:'Orbitron',monospace; font-size:17px; color:var(--white); margin-bottom:8px;">The Threshold</div>
+        <p style="font-size:14px; color:var(--steel); line-height:1.7;">Something changes everything. We're still mapping it. The timeline continues — listener submissions and future episodes will fill the gaps.</p>
+        <div style="margin-top:24px;">
+          <a href="mailto:submit@in20xx.com" class="btn btn-rust" style="display:inline-flex;">Help Write What Comes Next</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-bottom" style="border-top:1px solid var(--border); padding-top:32px;">
+      <div class="footer-copy">© 2025 In 20xx Sci-Fi & Futurism</div>
+      <a href="#" onclick="showPage('home'); return false;" class="btn btn-secondary" style="font-size:10px; padding:6px 16px;">← Home</a>
+    </div>
+  </footer>
+
+</div><!-- end page-timeline -->
+
+<script>
+  // ── PAGE ROUTING ──
+  function showPage(page) {
+    document.querySelectorAll('.page-section').forEach(el => el.classList.remove('active'));
+    document.getElementById('page-' + page).classList.add('active');
+    window.scrollTo(0, 0);
+    // re-run reveals
+    setTimeout(initReveal, 100);
+  }
+
+  // ── MOBILE NAV ──
+  const burger = document.getElementById('burgerBtn');
+  const mobileNav = document.getElementById('mobileNav');
+
+  burger.addEventListener('click', () => {
+    mobileNav.classList.toggle('open');
+  });
+
+  function closeMobileNav() {
+    mobileNav.classList.remove('open');
+  }
+
+  // ── SCROLL REVEAL ──
+  function initReveal() {
+    const reveals = document.querySelectorAll('.page-section.active .reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    reveals.forEach(el => {
+      el.classList.remove('visible');
+      observer.observe(el);
+    });
+  }
+
+  // ── FILTER BUTTONS ──
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      this.closest('.filter-row').querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  // ── INIT ──
+  document.addEventListener('DOMContentLoaded', initReveal);
+  window.addEventListener('load', initReveal);
+</script>
+</body>
+</html>
