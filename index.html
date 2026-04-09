@@ -1314,7 +1314,7 @@
     <section id="episodes-home" style="padding-top:80px; padding-bottom:80px; background: var(--black-mid);">
       <div class="section-label">Latest Episodes</div>
       <h2 class="section-title reveal">Transmissions<br />from the Edge</h2>
-      <p class="section-desc reveal">Five dispatches from futures worth fearing — and wanting.</p>
+      <p class="section-desc reveal">New episode every month on the 15th.</p>
 
       <div class="episodes-grid reveal">
 
@@ -1334,7 +1334,9 @@
                 target="_blank">▶ RedCircle</a>
             </div>
           </div>
-          <div class="ep-play" style="cursor: pointer;" data-audio="https://audio4.redcircle.com/episodes/3e1db053-4599-46de-9baa-f6abdd0b8be5/stream.mp3"><svg viewBox="0 0 24 24">
+          <div class="ep-play" style="cursor: pointer;"
+            data-audio="https://audio4.redcircle.com/episodes/3e1db053-4599-46de-9baa-f6abdd0b8be5/stream.mp3"><svg
+              viewBox="0 0 24 24">
               <path d="M8 5v14l11-7z" />
             </svg></div>
         </div>
@@ -1355,7 +1357,9 @@
                 target="_blank">▶ RedCircle</a>
             </div>
           </div>
-          <div class="ep-play" style="cursor: pointer;" data-audio="https://audio4.redcircle.com/episodes/9d44a3ef-73ef-4032-b7af-225dc146c5ae/stream.mp3"><svg viewBox="0 0 24 24">
+          <div class="ep-play" style="cursor: pointer;"
+            data-audio="https://audio4.redcircle.com/episodes/9d44a3ef-73ef-4032-b7af-225dc146c5ae/stream.mp3"><svg
+              viewBox="0 0 24 24">
               <path d="M8 5v14l11-7z" />
             </svg></div>
         </div>
@@ -1376,7 +1380,9 @@
                 target="_blank">▶ RedCircle</a>
             </div>
           </div>
-          <div class="ep-play" style="cursor: pointer;" data-audio="https://audio4.redcircle.com/episodes/f426df8e-0e26-4898-829d-36fd4df1a56e/stream.mp3"><svg viewBox="0 0 24 24">
+          <div class="ep-play" style="cursor: pointer;"
+            data-audio="https://audio4.redcircle.com/episodes/f426df8e-0e26-4898-829d-36fd4df1a56e/stream.mp3"><svg
+              viewBox="0 0 24 24">
               <path d="M8 5v14l11-7z" />
             </svg></div>
         </div>
@@ -1397,7 +1403,9 @@
                 target="_blank">▶ RedCircle</a>
             </div>
           </div>
-          <div class="ep-play" style="cursor: pointer;" data-audio="https://audio4.redcircle.com/episodes/743ff0d7-badc-4cf4-ba2a-5e890c4381b7/stream.mp3"><svg viewBox="0 0 24 24">
+          <div class="ep-play" style="cursor: pointer;"
+            data-audio="https://audio4.redcircle.com/episodes/743ff0d7-badc-4cf4-ba2a-5e890c4381b7/stream.mp3"><svg
+              viewBox="0 0 24 24">
               <path d="M8 5v14l11-7z" />
             </svg></div>
         </div>
@@ -1418,15 +1426,17 @@
                 target="_blank">▶ RedCircle</a>
             </div>
           </div>
-          <div class="ep-play" style="cursor: pointer;" data-audio="https://audio4.redcircle.com/episodes/7eff44ee-0241-473b-8ff6-cec4c434b9da/stream.mp3"><svg viewBox="0 0 24 24">
+          <div class="ep-play" style="cursor: pointer;"
+            data-audio="https://audio4.redcircle.com/episodes/7eff44ee-0241-473b-8ff6-cec4c434b9da/stream.mp3"><svg
+              viewBox="0 0 24 24">
               <path d="M8 5v14l11-7z" />
             </svg></div>
         </div>
       </div>
 
       <div style="margin-top:32px; text-align:right;">
-        <a href="#" onclick="showPage('episodes'); return false;" class="btn btn-secondary"
-          style="display:inline-flex;">All Episodes →</a>
+        <a href="https://redcircle.com/shows/dd44d057-b58f-4ee0-ad5b-8c7a41368c72" target="_blank"
+          class="btn btn-secondary" style="display:inline-flex;">All Episodes →</a>
       </div>
     </section>
 
@@ -1478,9 +1488,8 @@
           <div class="section-label reveal">About the Series</div>
           <h2 class="section-title reveal">Speculative Fiction<br />as a Map</h2>
           <p style="color:var(--steel); font-size:15px; line-height:1.75; margin-bottom:32px;" class="reveal">
-            Using immersive storytelling, <em>In 20xx</em> places listeners inside future landscapes shaped by real
-            technological trajectories. This isn't prediction — it's preparation. We explore what happens when systems
-            change faster than people do.
+            Using immersive storytelling, <em>In 20xx</em> places listeners inside future landscapes shaped by
+            technological trajectories. It's a race between rapid change and rapid adaptation.
           </p>
           <p style="color:var(--steel); font-size:15px; line-height:1.75; margin-bottom:40px;" class="reveal">
             Think-provoking but accessible. Big-picture speculation grounded in research. Slightly comedic. Completely
@@ -1937,12 +1946,12 @@
     // ── AUDIO PLAYER ──
     let globalAudio = new Audio();
     let currentPlayingBtn = null;
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
       let btn = e.target.closest('.ep-play');
       if (!btn) return;
       let url = btn.getAttribute('data-audio');
       if (!url) return;
-      
+
       e.preventDefault();
       if (currentPlayingBtn === btn && !globalAudio.paused) {
         globalAudio.pause();
@@ -1960,7 +1969,7 @@
         btn.querySelector('path').setAttribute('d', 'M6 19h4V5H6v14zm8-14v14h4V5h-4z');
       }
     });
-    globalAudio.addEventListener('ended', function() {
+    globalAudio.addEventListener('ended', function () {
       if (currentPlayingBtn) {
         currentPlayingBtn.style.opacity = '';
         currentPlayingBtn.querySelector('path').setAttribute('d', 'M8 5v14l11-7z');
