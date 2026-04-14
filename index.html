@@ -1587,7 +1587,7 @@
           Futures built by many voices are harder to get wrong.
         </p>
         <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
-          <a href="mailto:submit@in20xx.com" class="btn btn-rust">Submit Your Short Story</a>
+          <a href="/cdn-cgi/l/email-protection#b8cbcddad5d1ccf8d1d68a88c0c096dbd7d5" class="btn btn-rust">Submit Your Short Story</a>
           <a href="#" class="btn btn-secondary">Read Submission Guidelines</a>
         </div>
       </div>
@@ -1641,8 +1641,8 @@
           <ul class="footer-links">
             <li><a href="#" onclick="showPage('episodes'); return false;">All Episodes</a></li>
             <li><a href="timeline.html">Timeline</a></li>
-            <li><a href="mailto:submit@in20xx.com">Submit a Story</a></li>
-            <li><a href="mailto:hello@in20xx.com">Contact</a></li>
+            <li><a href="/cdn-cgi/l/email-protection#0f7c7a6d62667b4f66613d3f7777216c6062">Submit a Story</a></li>
+            <li><a href="/cdn-cgi/l/email-protection#2048454c4c4f60494e121058580e434f4d">Contact</a></li>
           </ul>
         </div>
       </div>
@@ -1924,7 +1924,7 @@
           <p style="font-size:14px; color:var(--steel); line-height:1.7;">Something changes everything. We're still
             mapping it. The timeline continues — listener submissions and future episodes will fill the gaps.</p>
           <div style="margin-top:24px;">
-            <a href="mailto:submit@in20xx.com" class="btn btn-rust" style="display:inline-flex;">Help Write What Comes
+            <a href="/cdn-cgi/l/email-protection#2a595f4847435e6a4344181a525204494547" class="btn btn-rust" style="display:inline-flex;">Help Write What Comes
               Next</a>
           </div>
         </div>
@@ -1942,7 +1942,7 @@
 
   </div><!-- end page-timeline -->
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // ── AUDIO PLAYER ──
     let globalAudio = new Audio();
     let currentPlayingBtn = null;
@@ -1986,6 +1986,12 @@
       setTimeout(initReveal, 100);
     }
 
+    // Load correct section from URL hash (e.g. index.html#episodes)
+    const hashPage = window.location.hash.replace('#', '');
+    if (hashPage && document.getElementById('page-' + hashPage)) {
+      showPage(hashPage);
+    }
+
     // ── MOBILE NAV ──
     const burger = document.getElementById('burgerBtn');
     const mobileNav = document.getElementById('mobileNav');
@@ -2021,15 +2027,4 @@
     // ── FILTER BUTTONS ──
     document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.addEventListener('click', function () {
-        this.closest('.filter-row').querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-      });
-    });
-
-    // ── INIT ──
-    document.addEventListener('DOMContentLoaded', initReveal);
-    window.addEventListener('load', initReveal);
-  </script>
-</body>
-
-</html>
+        this.closest('.filter-row').querySelectorAll('.filter-btn').

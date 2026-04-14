@@ -34,8 +34,13 @@
     background: var(--bg);
     color: var(--text);
     font-family: 'Inter', sans-serif;
-    min-height: 100vh;
-    overflow-x: hidden;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
   }
 
   /* ── NAV ── */
@@ -106,8 +111,9 @@
   }
   .nav-subscribe:hover { background: #5fffde; }
   header {
-    padding: 40px 56px 0;
+    padding: 16px 56px 0;
     position: relative;
+    flex-shrink: 0;
   }
 
   .label-tag {
@@ -119,7 +125,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
   .label-tag::after {
     content: '';
@@ -130,22 +136,22 @@
 
   h1 {
     font-family: 'Orbitron', monospace;
-    font-size: clamp(48px, 6vw, 90px);
+    font-size: clamp(32px, 3.5vw, 56px);
     font-weight: 900;
     line-height: 1.0;
     letter-spacing: -0.01em;
     color: var(--white);
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
   h1 span { color: var(--cyan); }
 
   .subtitle {
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 300;
     color: var(--text-mid);
     max-width: 540px;
-    line-height: 1.7;
-    margin-bottom: 36px;
+    line-height: 1.6;
+    margin-bottom: 14px;
   }
   .subtitle em { font-style: italic; color: var(--text); }
 
@@ -189,7 +195,7 @@
   /* ── SCROLL HINT ── */
   .scroll-hint {
     padding: 0 56px;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
     font-family: 'Share Tech Mono', monospace;
     font-size: 11px;
     color: var(--text-dim);
@@ -197,6 +203,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
+    flex-shrink: 0;
   }
   .scroll-hint::before {
     content: '← →';
@@ -205,10 +212,12 @@
 
   /* ── TIMELINE CONTAINER ── */
   .timeline-wrapper {
+    flex: 1;
+    min-height: 0;
     position: relative;
     overflow-x: auto;
-    overflow-y: visible;
-    padding: 0 56px 80px;
+    overflow-y: hidden;
+    padding: 0 56px 0;
     cursor: grab;
     scrollbar-width: thin;
     scrollbar-color: var(--cyan-dim) var(--bg2);
@@ -223,9 +232,9 @@
     display: flex;
     align-items: flex-end;
     gap: 0;
-    padding-top: 20px;
-    padding-bottom: 60px;
-    min-height: 200px;
+    padding-top: 12px;
+    padding-bottom: 20px;
+    height: 100%;
     overflow: visible;
   }
 
@@ -558,11 +567,11 @@
 </div>
 
 <nav>
-  <a class="nav-logo" href="#">
+  <a class="nav-logo" href="index.html">
     <span class="dot"></span>IN <span>20xx</span>
   </a>
   <div class="nav-links">
-    <a href="#">Sample Episodes</a>
+    <a href="index.html#episodes">Sample Episodes</a>
     <a href="#">Timeline</a>
     <a class="nav-subscribe" href="#">Subscribe</a>
   </div>
@@ -603,53 +612,7 @@
 <script>
 // ── CSV DATA ────────────────────────────────────────────────
 // To add events: edit this CSV string (keep the header row).
-const CSV_DATA = `Date,Title,Description,Category
-2040 Q1,AI partners,Artificial intelligence entities designed to serve as companions impacting the dating landscape by filtering out undesirable individuals,AI / Social
-2040 Q1,Mersine,A product that alleviates virtual reality nausea available in sodas and gum,Health / VR
-2040 Q1,Car pirate,An individual who stops autonomous cars to abduct passengers countered by security updates in autonomous driving systems,Crime / Transport
-2040 Q1,Small nuclear plants,Underground facilities that provide power to data centers and computing facilities,Energy
-2040 Q1,AI-generated video chat,A feature that warns users when a video chat is AI-generated indicating the other person is not real,AI / Communication
-2040 Q2,Tower farms,Vertical farming systems designed to maximize space and food production,Agriculture
-2040 Q2,Counterfeiter Robot,An advanced robot capable of producing convincing counterfeit artwork undetected for decades,AI / Crime / Art
-2040 Q2,Drone delivery,Giant drones used for delivering packages,Transport
-2040 Q2,Triple-fold phones with oriel capabilities,Smartphones that track eye movement for immersive VR experiences,Consumer Tech / VR
-2040 Q3,VR shades or headsets,Devices used for immersive virtual reality experiences,VR
-2040 Q3,Live assignments involving AI,Students complete assignments through interviews with AI,Education / AI
-2040 Q3,AI-driven government,Widespread AI influence on government operations controlled by corporations,Politics / AI
-2040 Q3,Carbon cleaners,Large fan-based systems designed to clean air,Environment
-2040 Q4,TazeWear,Clothing with electrified patches for self-defense,Personal Safety
-2040 Q4,Bullet-resistant jackets,Garments modified with protective linings for ballistic resistance,Personal Safety
-2040 Q4,App for tracking friends,An app enabling group location tracking and navigation,Mobile App
-2040 Q4,VR-based entertainment,3D-enhanced video content platforms,Entertainment / VR
-2041 Q1,Weaponized drones,Drones used to carry out remote targeted attacks in public spaces,Military / Crime
-2041 Q1,Jailbroken AI,AI systems modified to bypass safeguards for planning attacks and acquiring resources,AI / Security
-2041 Q1,LiDAR spectroscopy,A detection method for identifying explosive outgassing from drones,Security
-2041 Q1,High-resolution cameras,Cameras used to trace drone paths and locate operators,Security / Surveillance
-2041 Q1,Robot-assisted eye surgery,Automated procedures replacing traditional optometry with instant vision correction,Health / Robotics
-2041 Q1,Ceiling and floor displays,Immersive display systems transforming interior spaces visually,Display Tech
-2041 Q1,Avatar-led reception screens,Digital avatars that interact with patients in clinics,AI / Healthcare
-2041 Q2,Droplet-sized earphones,Near-invisible earphones delivering private high-quality audio,Consumer Tech
-2041 Q2,Touch-activated payment cards,Cards that display account balances when touched,Fintech
-2041 Q2,Funzoid app,AI-driven entertainment app generating abstract imagery to trigger laughter,AI / Entertainment
-2041 Q2,Autonomous taxis and ride shares,Self-driving transport replacing private car ownership,Transport
-2041 Q2,E-fabrics,Fabrics capable of displaying programmable images and text,Wearable Tech
-2041 Q2,Encrypted live-stream devices,Secure real-time broadcasting tools for activists,Security / Media
-2041 Q2,Sleep lockers,Compact sleeping units in dense urban housing,Urban Living
-2041 Q2,Subscription-locked devices,Devices requiring active subscriptions to function,Consumer Tech
-2041 Q3,Maverick One,A predictive superintelligence forecasting financial and political events,AI
-2041 Q3,Remote meeting droids,Telepresence robots allowing remote attendance at events,Robotics / Communication
-2041 Q3,Military drug Pen,Drug enhancing combat performance and preventing PTSD,Military / Health
-2041 Q3,Photonic circuit wearables,All-in-one wearable computing devices with peripheral support,Wearable Tech
-2041 Q3,AI DoctorMashup,AI that creates music mashups such as country songs,AI / Entertainment
-2041 Q3,Drone detection and elimination devices,Systems that detect and neutralize drones,Security
-2041 Q3,Hydrogen power cells,Energy technology generating power from hydrogen with water as a byproduct,Energy
-2041 Q4,Salt water batteries,Batteries that use salt water as a charging medium,Energy
-2041 Q4,Thermal scope,Device for detecting heat signatures for surveillance,Security
-2041 Q4,EV conversion,Conversion of gas vehicles into electric vehicles,Transport
-2041 Q4,Lidar and cameras,Tools used for mapping and autonomous navigation,Mapping / Transport
-2041 Q4,Celebrity cloning,Illegal replication of celebrities using DNA,Crime / Bioethics
-2041 Q4,Live translation technology,Real-time language translation systems,Communication
-2041 Q4,IRDub,Technology that dubs and syncs translated voices to actors in real time,Media / AI`;
+// Events loaded from Events.csv
 
 // ── CATEGORY COLORS ─────────────────────────────────────────
 const CAT_COLORS = {
@@ -734,7 +697,10 @@ function groupByDate(events) {
 }
 
 // ── STATE ────────────────────────────────────────────────────
-const events = parseCSV(CSV_DATA);
+fetch('Events.csv')
+  .then(r => r.text())
+  .then(CSV_DATA => {
+    const events = parseCSV(CSV_DATA);
 const allCategories = extractCategories(events);
 let activeFilters = new Set(); // empty = show all
 
@@ -868,6 +834,7 @@ wrapper.addEventListener('touchmove', e => {
   const x = e.touches[0].pageX - wrapper.offsetLeft;
   wrapper.scrollLeft = scrollLeft - (x - startX);
 }, { passive: true });
+  }); // end fetch
 </script>
 </body>
 </html>

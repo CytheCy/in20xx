@@ -1,6 +1,3 @@
-Here is your content converted into CSV format:
-
-```csv
 Date,Title,Description,Category
 2040 Q1,AI partners,Artificial intelligence entities designed to serve as companions impacting the dating landscape by filtering out undesirable individuals,AI / Social
 2040 Q1,Mersine,A product that alleviates virtual reality nausea available in sodas and gum,Health / VR
@@ -50,6 +47,5 @@ Date,Title,Description,Category
 2041 Q4,IRDub,Technology that dubs and syncs translated voices to actors in real time,Media / AI
 2042 Q1,Graphene/Plastic Hull,"A lightweight, durable material used in the construction of the Climate Core ships.",Manufacturing / Engineering
 2042 Q1,Carbcrete Bed,"Material poured into the bottom of the ship's hull to add weight and stability.",Construction / Engineering
-2042 Q1,Nutrient and Bacteria Solution,"A liquid sprayed by the arms to remove carbon from water, promoting shell growth in bacteria that sinks to the ocean floor.",Biotechnology / Environment
-2042 Q1,Printed Bones,A medical advancement Tessa benefited from, allowing her to avoid a cast after an injury.,Medical Technology / Healthcare
-```
+2042 Q1,Nutrient and Bacteria Solution,"A liquid sprayed on ocean surface to remove carbon from water, promoting shell growth in bacteria that sinks to the ocean floor.",Biotechnology / Environment
+2042 Q1,Printed Bones,A medical advancement allowing patients to avoid casts after injuries.,Medical Technology / Healthcare
