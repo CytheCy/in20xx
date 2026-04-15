@@ -145,6 +145,35 @@
   }
   h1 span { color: var(--cyan); }
 
+  /* ── PLAY/PAUSE BUTTON ── */
+  .title-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 10px;
+  }
+  .title-row h1 {
+    margin-bottom: 0;
+  }
+  .play-btn {
+    margin-left: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    height: clamp(32px, 3.5vw, 56px);
+    width: clamp(32px, 3.5vw, 56px);
+    background: transparent;
+    border: 2px solid var(--cyan);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.2s;
+    padding: 0;
+  }
+  .play-btn:hover { background: var(--cyan-faint); }
+  .play-btn svg { width: 45%; height: 45%; fill: var(--cyan); }
+  .play-btn.playing { background: var(--cyan-faint); }
+
   .subtitle {
     font-size: 13px;
     font-weight: 300;
@@ -594,7 +623,13 @@
   </svg>
 
   <div class="label-tag">Speculative Master Timeline</div>
-  <h1>The <span>20xx</span><br>Timeline</h1>
+  <div class="title-row">
+    <h1>The <span>20xx</span><br>Timeline</h1>
+    <button class="play-btn" id="play-btn" title="Play latest episode">
+      <svg id="play-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+      <svg id="pause-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display:none"><rect x="5" y="3" width="4" height="18"/><rect x="15" y="3" width="4" height="18"/></svg>
+    </button>
+  </div>
   <p class="subtitle">
     Click on any tech item to read more. To subscribe, open your podcast app, search for “In 20xx Sci-Fi & Futurism,” and tap the Follow or Subscribe button.
   </p>
@@ -610,6 +645,32 @@
 </div>
 
 <script>
+// ── AUDIO PLAY/PAUSE ─────────────────────────────────────────
+const audio = new Audio('https://stream.redcircle.com/episodes/7764eea2-11ba-41fc-be2f-69e7f57ce80b/stream.mp3');
+const playBtn = document.getElementById('play-btn');
+const playIcon = document.getElementById('play-icon');
+const pauseIcon = document.getElementById('pause-icon');
+
+playBtn.addEventListener('click', () => {
+  if (audio.paused) {
+    audio.play();
+    playIcon.style.display = 'none';
+    pauseIcon.style.display = '';
+    playBtn.classList.add('playing');
+  } else {
+    audio.pause();
+    playIcon.style.display = '';
+    pauseIcon.style.display = 'none';
+    playBtn.classList.remove('playing');
+  }
+});
+
+audio.addEventListener('ended', () => {
+  playIcon.style.display = '';
+  pauseIcon.style.display = 'none';
+  playBtn.classList.remove('playing');
+});
+
 // ── CSV DATA ────────────────────────────────────────────────
 // To add events: edit this CSV string (keep the header row).
 // Events loaded from Events.csv
