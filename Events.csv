@@ -113,3 +113,8 @@ Date,Title,Description,Category
 2045 Q1,Follow Trailers,Tall wheeled cargo units that autonomously follow owners or can be ridden inside,Transportation / Personal Mobility
 2045 Q1,Shape-Change Smock,Adaptive clothing that changes form based on movement and posture,Wearables / Smart Materials
 2045 Q1,Half-Wide Car,Narrow vehicle designed to operate efficiently on degraded or damaged roads,Transportation
+2045 Q2,Delivery scan,A robot that delivers packages scans face for identification,Robotics / Security
+2045 Q2,Rig,A spider-like robot designed for remote control with immersive user harnessing,Robotics / Interface
+2045 Q2,Remote control center,A virtual reality setup used to oversee and control police robots,VR / Public Safety
+2045 Q2,Police/Firefighter bots,Automated robots fulfilling 95% of emergency duties,Robotics / Public Safety
+2045 Q2,Sidewalk charge plug,Ubiquitous charging infrastructure for electric vehicles located on sidewalks,Infrastructure / Energy
