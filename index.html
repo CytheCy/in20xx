@@ -5,6 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>In 20xx — Sci-Fi & Futurism</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -301,17 +303,17 @@
     .hero-scan {
       position: absolute;
       top: 0;
+      bottom: 0;
       left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--teal), transparent);
+      width: 2px;
+      background: linear-gradient(to bottom, transparent, var(--teal), transparent);
       opacity: 0.4;
       animation: scan 8s ease-in-out infinite;
     }
 
     @keyframes scan {
       0% {
-        top: 0;
+        left: 0;
         opacity: 0;
       }
 
@@ -324,7 +326,7 @@
       }
 
       100% {
-        top: 100%;
+        left: 100%;
         opacity: 0;
       }
     }
@@ -1230,8 +1232,8 @@
     <ul class="nav-links">
       <li><a href="#" onclick="showPage('episodes'); return false;">Sample Episodes</a></li>
       <li><a href="timeline.html">Timeline</a></li>
-      <li><a href="https://redcircle.com/shows/dd44d057-b58f-4ee0-ad5b-8c7a41368c72" target="_blank"
-          class="nav-cta">Subscribe</a></li>
+      <li><a href="https://www.youtube.com/@In20xx" target="_blank"
+          class="nav-cta">Subscribe on YouTube</a></li>
     </ul>
     <button class="nav-burger" id="burgerBtn" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -1241,7 +1243,7 @@
   <div class="mobile-nav" id="mobileNav">
     <a href="#" onclick="showPage('episodes'); closeMobileNav(); return false;">Sample Episodes</a>
     <a href="#" onclick="showPage('timeline'); closeMobileNav(); return false;">Timeline</a>
-    <a href="https://redcircle.com/shows/dd44d057-b58f-4ee0-ad5b-8c7a41368c72" target="_blank">Subscribe →</a>
+    <a href="https://www.youtube.com/@In20xx" target="_blank">Subscribe on YouTube →</a>
   </div>
 
   <!-- ═══════════════════════════════ HOME PAGE ═══════════════════════════════ -->
