@@ -138,3 +138,7 @@ Date,Title,Description,Category
 2046 Q1,Underwater Intake Facilities,Seafloor systems that use high-pressure ocean water to filter and produce fresh water with minimal energy use,Infrastructure / Water
 2046 Q1,Space Monkeys,Zero-gravity robots with arm-like limbs designed for maneuvering and performing tasks in space environments,Robotics / Space
 2046 Q1,Holographic Interface,Holographic display system for interacting with and diagnosing space equipment and robotics systems,Interface / Space
+2046 Q2,Skill Recording Systems,Systems that record human skills in 3D, such as bricklaying, tiling, and roofing,Technology / Training
+2046 Q2,Maid Robots,Affordable cleaning robots that visit homes and serve a wide range of income levels,Robotics / Home Services
+2046 Q2,Facial Recognition Systems,Systems that instantly identify individuals during encounters by matching faces to criminal records,Security / Surveillance
+2046 Q2,Cybersecurity Forensics Tools,Tools used to analyze and verify the authenticity of digital evidence, including encrypted authenticator metadata in recordings,Security / Cybersecurity
