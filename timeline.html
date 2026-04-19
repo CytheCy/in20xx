@@ -523,7 +523,7 @@
     position: fixed;
     top: 0;
     bottom: 0;
-    width: 2px;
+    width: 0.5px;
     background: linear-gradient(
       to bottom,
       transparent 0%,
@@ -534,17 +534,17 @@
     );
     pointer-events: none;
     z-index: 50;
-    filter: blur(0.5px);
+    filter: blur(0.2px);
     animation: sweep 10s linear infinite;
   }
   .sweep-line::after {
     content: '';
     position: absolute;
     top: 0; bottom: 0;
-    left: -6px; right: -6px;
+    left: -3px; right: -3px;
     background: inherit;
-    filter: blur(6px);
-    opacity: 0.4;
+    filter: blur(2px);
+    opacity: 0.15;
   }
   @keyframes sweep {
     0%   { left: -4px; opacity: 0; }
