@@ -137,7 +137,14 @@ Date,Title,Description,Category
 2046 Q1,Underwater Intake Facilities,Seafloor systems that use high-pressure ocean water to filter and produce fresh water with minimal energy use,Infrastructure / Water
 2046 Q1,Space Monkeys,Zero-gravity robots with arm-like limbs designed for maneuvering and performing tasks in space environments,Robotics / Space
 2046 Q1,Holographic Interface,Holographic display system for interacting with and diagnosing space equipment and robotics systems,Interface / Space
-2046 Q2,Skill Recording Systems,Systems that record human skills in 3D, such as bricklaying, tiling, and roofing,Technology / Training
+2046 Q2,Skill Recording Systems,Systems that record human skills in 3D such as bricklaying tiling and roofing,Technology / Training
 2046 Q2,Maid Robots,Affordable cleaning robots that visit homes and serve a wide range of income levels,Robotics / Home Services
 2046 Q2,Facial Recognition Systems,Systems that instantly identify individuals during encounters by matching faces to criminal records,Security / Surveillance
-2046 Q2,Cybersecurity Forensics Tools,Tools used to analyze and verify the authenticity of digital evidence, including encrypted authenticator metadata in recordings,Security / Cybersecurity
+2046 Q2,Cybersecurity Forensics Tools,Tools used to analyze and verify the authenticity of digital evidence including encrypted authenticator metadata in recordings,Security / Cybersecurity
+2046 Q3,Multidirectional Treadmills,Used for exercise and immersive VR experiences,Fitness / VR
+2046 Q3,Health Monitor Toilet,A smart toilet that monitors health metrics and transmits data for analysis while alerting users to potential risks,Health / Smart Home
+2046 Q3,Automated Checkup Kiosk,A device that provides medical checkups without a doctor typically placed in public or convenient locations,Health / Automation
+2046 Q3,Satellite Surveillance,Satellite technology capable of tracking individuals in real time for monitoring or targeting purposes,Security / Surveillance
+2046 Q3,Mosquito-Size Drones,Tiny autonomous drones used as weapons that can swarm and attack targets,Military / Robotics
+2046 Q3,Rapid Deploy Defense Systems,Custom built defense systems designed to protect against drone attacks including swarms of micro drones,Defense / Security
+2046 Q3,Automated Towns,Towns owned by wealthy families and largely operated by automation across production mining AI and development,Infrastructure / Automation
