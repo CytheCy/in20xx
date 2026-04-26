@@ -22,7 +22,7 @@ Date,Title,Description,Category
 2041 Q1,High-resolution cameras,Cameras 5X greater resolution than the human eye used to track drones,Security / Surveillance
 2041 Q1,Robot-assisted eye surgery,Automated procedures replacing traditional optometry with instant vision correction,Health / Robotics
 2041 Q1,Ceiling and floor displays,Whole floor or whole ceiling immersive display screens,Display Tech
-2041 Q1,Avatar-led reception screens,Digital avatars that interact with clients and customers,AI / Healthcare
+2041 Q1,Avatar reception screens,Digital avatars that interact with clients and customers,AI / Healthcare
 2041 Q2,Droplet-sized earphones,Near-invisible earphones delivering private high-quality audio,Consumer Tech
 2041 Q2,Touch-activated payment cards,Cards that display account balances when touched,Fintech
 2041 Q2,Funzoid app,AI-driven entertainment app generating abstract imagery to trigger laughter,AI / Entertainment
@@ -169,3 +169,8 @@ Date,Title,Description,Category
 2047 Q3,Alexa medical analysis kiosk,Hacked Alexa device repurposed as a medical diagnostic tool for patient analysis,Healthcare Technology
 2047 Q3,Print on demand medical kiosks,Facilities that distribute kiosks and training materials to establish local medical practices with lower cost insurance,Healthcare Infrastructure
 2047 Q3,Self sustainers,Individuals or groups who mobilize supplies and provide education to save people during crises,Humanitarian Aid
+2047 Q4,Drone Watch,An organization or system for reporting and monitoring drone activity,Security / Surveillance
+2047 Q4,Child tracker chips,Implantable devices for tracking childrens locations using nearby connect links,Technology / Security
+2047 Q4,Known hunted,Anyone who is known for any reason is in danger of being hunted,Society / Risk
+2047 Q4,Robot manicures,Extremely detailed manicures depicting complex scenes hand painted by robots,Beauty / Robotics
+2047 Q4,Screens see,Screens have millions of tiny cameras across their surface,Technology / Surveillance
