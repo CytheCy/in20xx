@@ -50,7 +50,7 @@ Date,Title,Description,Category
 2042 Q1,Printed Bones,A medical advancement allowing patients to avoid casts after injuries.,Medical Technology / Healthcare
 2042 Q2,Connect-Link,A ubiquitous personal device used for various functions including communication payments and device control,Technology
 2042 Q2,Foldable Device,A portable technology Tessa uses capable of unfolding and running applications like the Tube platform,Technology
-2042 Q2,Medusa Software,Tessa's pet project a shadow network that transforms connect-links into mini-servers for anonymous surfing,Technology / Security
+2042 Q2,Medusa Net,Tessa's pet project a shadow network that transforms connect-links into swarm servers for anonymous surfing,Technology / Security
 2042 Q2,Drop tunnels,Car transportation network allowing faster travel by avoiding traffic signals and weather conditions,Infrastructure / Transportation
 2042 Q3,Dash screen,In-car display for media and navigation showing news channels like MSNBC,Technology / Media
 2042 Q3,AI-generated distribution plans,Automated system for managing inventory and supply chain logistics,Technology / Logistics
@@ -199,3 +199,10 @@ Date,Title,Description,Category
 2048 Q4,Solar blankets,Charge during daylight hours and release warmth at night for personal heating,Energy / Consumer Goods
 2048 Q4,VR study booths,Library stations where users work in immersive virtual reality environments,Education / Technology
 2048 Q4,Cancer cures,Most cancers are curable using genetically modified organism treatments,Healthcare / Biotechnology
+2049 Q1,AR glasses,Devices that provide an enhanced view of the physical world and become the most used connection device,Consumer Technology / Augmented Reality
+2049 Q1,Life-logging jewelry,Encrypted life-logging devices where only AI can access the recordings,Security / Wearable Technology
+2049 Q1,Canal links,Devices inserted into the ear canal for internet connection device syncing and optimized sound control,Consumer Technology / Audio Interfaces
+2049 Q1,VR rigs,Harness and robotic arm assemblies that allow full body movement in virtual reality,Consumer Technology / Virtual Reality
+2049 Q1,Engineered microbes,Microorganisms designed for specific purposes such as rebuilding teeth,Biotechnology / Medicine
+2049 Q1,Phage powder,Antibacterial substance effective against superbugs,Biotechnology / Medicine
+2049 Q1,Brewed foods,Foods produced using fungi and often processed by devices like the Mechanical Stomach,Food Technology / Synthetic Food
