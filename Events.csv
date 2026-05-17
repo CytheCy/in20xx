@@ -245,7 +245,7 @@ Date,Title,Description,Category
 2050 Q3,Desalination plants,Facilities that convert salt water into drinkable water,Water / Infrastructure
 2050 Q4,Jobs Navigator,An AI driven app that helps people find jobs,Employment / AI
 2050 Q4,Self Storage Rigs,Locker like facilities where rigs for remote control of robots are stored and operated,Robotics / Infrastructure
-2050 Q4,My crete,An engineered microbe product that when mixed with dirt sand and water forms a strong lightweight and insulating building material,Construction / Biotechnology
+2050 Q4,My-crete,An engineered microbe product that when mixed with dirt sand and water forms a strong lightweight and insulating building material,Construction / Biotechnology
 2050 Q4,AR Social Media,Augmented reality social media accessed through AR glasses,Media / Augmented Reality
 2050 Q4,Utility Car,A car with a foldable truck bed,Transportation / Vehicles
 2050 Q4,Giantess Tower,A mega facility that provides all food and goods to the surrounding area,Infrastructure / Logistics
@@ -284,3 +284,10 @@ Date,Title,Description,Category
 2052 Q1,Replicators,Centers capable of producing nearly any item on demand using advanced manufacturing systems,Manufacturing / Automation
 2052 Q1,Tiny Robots,Miniature robots that create custom jewelry and print teeth with high precision,Robotics / Manufacturing
 2052 Q1,Gravity-Battery Well,An energy storage system using suspended weights and generators to store and produce electricity,Energy / Infrastructure
+2052 Q2,Fab Library,Community library for fabrication and repair with open source advanced manufacturing tools,Manufacturing / Community
+2052 Q2,NeCo-Glass,Transparent material with superior insulation and radiation filtering,Materials / Construction
+2052 Q2,Survive-All Pod,Versatile robotic pod that walks on four legs for transport and survival,Robotics / Transportation
+2052 Q2,Glasses with Sonic Infrared Smell and Radio Vision,Advanced eyewear providing enhanced multisensory perception,Wearable Tech / Augmentation
+2052 Q2,Brazzo-Coated Clothes,Protective clothing resistant to thorns and environmental hazards,Clothing / Safety
+2052 Q2,Mini-Blimp Drone,Small quiet drone designed for surveillance and reconnaissance,Drones / Surveillance
+2052 Q2,Mechanical Stomach,Device that processes plant material into compact food bars,Food Tech / Survival
