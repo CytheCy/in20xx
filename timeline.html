@@ -761,8 +761,11 @@ function groupByDate(events) {
 }
 
 // ── STATE ────────────────────────────────────────────────────
-fetch('Events.csv')
-  .then(r => r.text())
+fetch(`Events.csv?ts=${Date.now()}`, { cache: 'no-store' })
+  .then(r => {
+    if (!r.ok) throw new Error(`Failed to load Events.csv (${r.status})`);
+    return r.text();
+  })
   .then(CSV_DATA => {
     const events = parseCSV(CSV_DATA);
 const allCategories = extractCategories(events);
@@ -898,7 +901,16 @@ wrapper.addEventListener('touchmove', e => {
   const x = e.touches[0].pageX - wrapper.offsetLeft;
   wrapper.scrollLeft = scrollLeft - (x - startX);
 }, { passive: true });
-  }); // end fetch
+  })
+  .catch(err => {
+    const inner = document.getElementById('timeline-inner');
+    inner.innerHTML = `
+      <div style="padding:32px;color:var(--text-mid);font-family:'Share Tech Mono', monospace; letter-spacing:0.08em;">
+        Timeline data could not load.
+      </div>
+    `;
+    console.error(err);
+  });
 </script>
 </body>
 </html>

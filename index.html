@@ -806,6 +806,51 @@
       color: #E05050;
     }
 
+    /* ─── TIMELINE PAGE ─── */
+    .timeline-page-list {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      padding-left: 40px;
+      border-left: 1px solid var(--border);
+    }
+
+    .timeline-page-entry {
+      margin-bottom: 48px;
+      position: relative;
+    }
+
+    .timeline-page-entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-page-marker {
+      position: absolute;
+      left: -48px;
+      top: 6px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .timeline-page-marker span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      display: block;
+    }
+
+    .timeline-page-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      margin-bottom: 8px;
+    }
+
     /* ─── STORY SUBMISSION ─── */
     #submit {
       background: var(--black);
@@ -1525,55 +1570,7 @@
         turning points explored across episodes.</p>
 
       <div class="timeline-inner reveal">
-        <div class="timeline-entry">
-          <div>
-            <div class="tl-year">2041</div>
-          </div>
-          <div>
-            <div class="tl-tag tech">AI Weapon</div>
-            <div class="tl-event-title">First AI Hacking of Human Brains</div>
-            <div class="tl-event-desc">In a time of war, this weapon requires no fuel and no factories to make. It
-              travels at the speed of light and always strikes its target.</div>
-          </div>
-        </div>
-
-        <div class="timeline-entry">
-          <div>
-            <div class="tl-year">2044</div>
-          </div>
-          <div>
-            <div class="tl-tag crisis">Disruption</div>
-            <div class="tl-event-title">Food Production Overhaul</div>
-            <div class="tl-event-desc">Why grow an entire plant or animal just to use 5%? Only grow the 5% you need.
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline-entry">
-          <div>
-            <div class="tl-year">2044</div>
-          </div>
-          <div>
-            <div class="tl-tag social">Jobs</div>
-            <div class="tl-event-title">Retrofit to Automation</div>
-            <div class="tl-event-desc">Overnight, 89% of jobs are replaced. People with jobs become a minority. When the
-              economy no longer needs workers, the unemployed join forces to build new landscapes of innovation and
-              ownership.</div>
-          </div>
-        </div>
-
-        <div class="timeline-entry">
-          <div>
-            <div class="tl-year">2053</div>
-          </div>
-          <div>
-            <div class="tl-tag tech">Apocalypse</div>
-            <div class="tl-event-title">World Storm</div>
-            <div class="tl-event-desc">The Earth's weather switches to a permanent storm covering the surface. Winds
-              twice as fast as top hurricane speeds uproot cities. The survivors are a strange new breed.</div>
-          </div>
-        </div>
-
+        <div id="timeline-preview-list" aria-live="polite"></div>
         <div style="margin-top:32px; text-align:center;">
           <a href="timeline.html" class="btn btn-rust" style="display:inline-flex;">Explore Full Timeline →</a>
         </div>
@@ -1859,100 +1856,10 @@
     </div>
 
     <section style="padding: 72px 48px 120px; background: var(--black);">
-      <div
-        style="max-width: 800px; margin: 0 auto; position: relative; padding-left: 40px; border-left: 1px solid var(--border);">
-
-        <div style="margin-bottom: 48px; position:relative;">
-          <div
-            style="position:absolute; left:-48px; top:6px; width:14px; height:14px; border:1px solid var(--teal); border-radius:50%; background:var(--black); display:flex; align-items:center; justify-content:center;">
-            <div style="width:6px; height:6px; background:var(--teal); border-radius:50;"></div>
-          </div>
-          <div
-            style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--teal); letter-spacing:0.15em; margin-bottom:8px;">
-            NOW — 2025</div>
-          <div style="font-family:'Orbitron',monospace; font-size:17px; color:var(--white); margin-bottom:8px;">The
-            Accelerating Present</div>
-          <p style="font-size:14px; color:var(--steel); line-height:1.7;">AI permeates daily infrastructure. Autonomous
-            systems make decisions previously reserved for humans. The gap between invention and regulation widens.</p>
-        </div>
-
-        <div style="margin-bottom: 48px; position:relative;">
-          <div
-            style="position:absolute; left:-48px; top:6px; width:14px; height:14px; border:1px solid var(--teal); border-radius:50%; background:var(--black); display:flex; align-items:center; justify-content:center;">
-            <div style="width:6px; height:6px; background:var(--teal); border-radius:50%;"></div>
-          </div>
-          <div
-            style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--teal); letter-spacing:0.15em; margin-bottom:8px;">
-            2028–2031</div>
-          <div class="tl-tag tech" style="margin-bottom:8px;">Technology</div>
-          <div style="font-family:'Orbitron',monospace; font-size:17px; color:var(--white); margin-bottom:8px;">Neural
-            Interface Era</div>
-          <p style="font-size:14px; color:var(--steel); line-height:1.7;">Brain-computer interfaces move from medical
-            devices to consumer products. Cognitive data becomes the world's most contested resource. The first lawsuits
-            over memory ownership are filed.</p>
-          <div
-            style="margin-top:12px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--rust-bright);">→
-            Explored in Ep. 05: The Architect of Forgetting</div>
-        </div>
-
-        <div style="margin-bottom: 48px; position:relative;">
-          <div
-            style="position:absolute; left:-48px; top:6px; width:14px; height:14px; border:1px solid var(--rust); border-radius:50%; background:var(--black); display:flex; align-items:center; justify-content:center;">
-            <div style="width:6px; height:6px; background:var(--rust); border-radius:50%;"></div>
-          </div>
-          <div
-            style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--rust-bright); letter-spacing:0.15em; margin-bottom:8px;">
-            2035–2040</div>
-          <div class="tl-tag crisis" style="margin-bottom:8px;">Crisis</div>
-          <div style="font-family:'Orbitron',monospace; font-size:17px; color:var(--white); margin-bottom:8px;">The
-            Great Displacement</div>
-          <p style="font-size:14px; color:var(--steel); line-height:1.7;">Mass automation restructures economies faster
-            than social safety nets can adapt. New civic architectures emerge from necessity — some hopeful, some
-            authoritarian. The question isn't jobs, it's identity.</p>
-          <div
-            style="margin-top:12px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--rust-bright);">→
-            Explored in Ep. 03: The Consensus Engine</div>
-        </div>
-
-        <div style="margin-bottom: 48px; position:relative;">
-          <div
-            style="position:absolute; left:-48px; top:6px; width:14px; height:14px; border:1px solid var(--teal); border-radius:50%; background:var(--black); display:flex; align-items:center; justify-content:center;">
-            <div style="width:6px; height:6px; background:var(--teal); border-radius:50%;"></div>
-          </div>
-          <div
-            style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--teal); letter-spacing:0.15em; margin-bottom:8px;">
-            2041–2048</div>
-          <div class="tl-tag social" style="margin-bottom:8px;">Social</div>
-          <div style="font-family:'Orbitron',monospace; font-size:17px; color:var(--white); margin-bottom:8px;">
-            Planetary Migration Period</div>
-          <p style="font-size:14px; color:var(--steel); line-height:1.7;">Climate-driven displacement reshapes
-            civilization's geography. New political entities emerge. "Home" becomes a legal concept rather than a
-            physical one. Some find freedom in the chaos.</p>
-          <div
-            style="margin-top:12px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--rust-bright);">→
-            Explored in Ep. 04: Meridian Protocol</div>
-        </div>
-
-        <div style="position:relative;">
-          <div
-            style="position:absolute; left:-48px; top:6px; width:14px; height:14px; border:1px solid var(--steel-dim); border-radius:50%; background:var(--black); display:flex; align-items:center; justify-content:center;">
-            <div style="width:6px; height:6px; background:var(--steel-dim); border-radius:50%;"></div>
-          </div>
-          <div
-            style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--steel); letter-spacing:0.15em; margin-bottom:8px;">
-            20xx</div>
-          <div class="tl-tag" style="background:rgba(138,155,168,0.1); color:var(--steel); margin-bottom:8px;">Unknown
-          </div>
-          <div style="font-family:'Orbitron',monospace; font-size:17px; color:var(--white); margin-bottom:8px;">The
-            Threshold</div>
-          <p style="font-size:14px; color:var(--steel); line-height:1.7;">Something changes everything. We're still
-            mapping it. The timeline continues — listener submissions and future episodes will fill the gaps.</p>
-          <div style="margin-top:24px;">
-            <a href="mailto:submit@in20xx.com" class="btn btn-rust" style="display:inline-flex;">Help Write What Comes
-              Next</a>
-          </div>
-        </div>
-
+      <div id="timeline-page-list" class="timeline-page-list" aria-live="polite"></div>
+      <div style="max-width:800px; margin:24px auto 0; padding-left:40px;">
+        <a href="mailto:submit@in20xx.com" class="btn btn-rust" style="display:inline-flex;">Help Write What Comes
+          Next</a>
       </div>
     </section>
 
@@ -2050,8 +1957,220 @@
       });
     });
 
+    // ── TIMELINE PREVIEW FROM CSV ──
+    const TIMELINE_TAG_COLORS = {
+      'AI': ['rgba(46, 207, 191, 0.1)', '#2ECFBF'],
+      'Security': ['rgba(255, 74, 110, 0.1)', '#ff4a6e'],
+      'Energy': ['rgba(255, 224, 102, 0.1)', '#ffe066'],
+      'Transport': ['rgba(255, 140, 66, 0.1)', '#ff8c42'],
+      'Health': ['rgba(168, 255, 120, 0.1)', '#a8ff78'],
+      'VR': ['rgba(180, 125, 255, 0.1)', '#b47dff'],
+      'Crime': ['rgba(255, 74, 110, 0.1)', '#ff4a6e'],
+      'Military': ['rgba(255, 107, 53, 0.1)', '#ff6b35'],
+      'Consumer Tech': ['rgba(63, 184, 255, 0.1)', '#3fb8ff'],
+      'Wearable Tech': ['rgba(180, 125, 255, 0.1)', '#b47dff'],
+      'Environment': ['rgba(168, 255, 120, 0.1)', '#a8ff78'],
+      'Social': ['rgba(255, 120, 196, 0.1)', '#ff78c4'],
+      'Education': ['rgba(255, 224, 102, 0.1)', '#ffe066'],
+      'Agriculture': ['rgba(168, 255, 120, 0.1)', '#a8ff78'],
+      'Media': ['rgba(63, 184, 255, 0.1)', '#3fb8ff'],
+      'Fintech': ['rgba(46, 207, 191, 0.1)', '#2ECFBF'],
+      'Robotics': ['rgba(255, 140, 66, 0.1)', '#ff8c42'],
+      'Communication': ['rgba(63, 184, 255, 0.1)', '#3fb8ff'],
+      'Entertainment': ['rgba(255, 120, 196, 0.1)', '#ff78c4'],
+      'Urban Living': ['rgba(138, 180, 248, 0.1)', '#8ab4f8'],
+      'Politics': ['rgba(255, 74, 110, 0.1)', '#ff4a6e'],
+      'Personal Safety': ['rgba(255, 140, 66, 0.1)', '#ff8c42'],
+      'Mobile App': ['rgba(63, 184, 255, 0.1)', '#3fb8ff'],
+      'Mapping': ['rgba(255, 224, 102, 0.1)', '#ffe066'],
+      'Display Tech': ['rgba(180, 125, 255, 0.1)', '#b47dff'],
+      'Bioethics': ['rgba(255, 74, 110, 0.1)', '#ff4a6e']
+    };
+
+    function parseTimelineCSV(csv) {
+      const lines = csv.trim().split('\n');
+      const headers = lines[0].split(',');
+      return lines.slice(1).map(line => {
+        const cols = [];
+        let cur = '', inQ = false;
+        for (let i = 0; i < line.length; i++) {
+          if (line[i] === '"') {
+            inQ = !inQ;
+          } else if (line[i] === ',' && !inQ) {
+            cols.push(cur);
+            cur = '';
+          } else {
+            cur += line[i];
+          }
+        }
+        cols.push(cur);
+        const obj = {};
+        headers.forEach((h, i) => obj[h.trim()] = (cols[i] || '').trim());
+        return obj;
+      }).filter(row => row.Date && row.Title);
+    }
+
+    function groupTimelineByDate(events) {
+      const map = {};
+      events.forEach(event => {
+        if (!map[event.Date]) map[event.Date] = [];
+        map[event.Date].push(event);
+      });
+      return Object.keys(map).sort((a, b) => {
+        const [ya, qa] = a.split(' ');
+        const [yb, qb] = b.split(' ');
+        return ya !== yb ? ya.localeCompare(yb) : (qa || '').localeCompare(qb || '');
+      }).map(date => ({ date, events: map[date] }));
+    }
+
+    function getTimelineTagStyle(category) {
+      const firstCategory = category.split('/')[0].trim();
+      return TIMELINE_TAG_COLORS[firstCategory] || ['rgba(46, 207, 191, 0.1)', '#2ECFBF'];
+    }
+
+    function buildTimelinePreviewEntry(group) {
+      const event = group.events[0];
+      const [bg, color] = getTimelineTagStyle(event.Category);
+      const entry = document.createElement('div');
+      entry.className = 'timeline-entry';
+
+      const left = document.createElement('div');
+      const year = document.createElement('div');
+      year.className = 'tl-year';
+      year.textContent = group.date;
+      left.appendChild(year);
+
+      const right = document.createElement('div');
+      const tag = document.createElement('div');
+      tag.className = 'tl-tag';
+      tag.style.background = bg;
+      tag.style.color = color;
+      tag.textContent = event.Category.split('/')[0].trim();
+
+      const title = document.createElement('div');
+      title.className = 'tl-event-title';
+      title.textContent = event.Title;
+
+      const desc = document.createElement('div');
+      desc.className = 'tl-event-desc';
+      desc.textContent = event.Description;
+
+      right.appendChild(tag);
+      right.appendChild(title);
+      right.appendChild(desc);
+
+      entry.appendChild(left);
+      entry.appendChild(right);
+      return entry;
+    }
+
+    function buildTimelinePageEntry(group) {
+      const event = group.events[0];
+      const [bg, color] = getTimelineTagStyle(event.Category);
+      const entry = document.createElement('div');
+      entry.className = 'timeline-page-entry';
+
+      const marker = document.createElement('div');
+      marker.className = 'timeline-page-marker';
+      marker.style.border = `1px solid ${color}`;
+
+      const markerDot = document.createElement('span');
+      markerDot.style.background = color;
+      marker.appendChild(markerDot);
+
+      const year = document.createElement('div');
+      year.className = 'timeline-page-date';
+      year.style.color = color;
+      year.textContent = group.date;
+
+      const tag = document.createElement('div');
+      tag.className = 'tl-tag';
+      tag.style.background = bg;
+      tag.style.color = color;
+      tag.textContent = event.Category.split('/')[0].trim();
+
+      const title = document.createElement('div');
+      title.className = 'tl-event-title';
+      title.textContent = event.Title;
+
+      const desc = document.createElement('div');
+      desc.className = 'tl-event-desc';
+      desc.textContent = event.Description;
+
+      entry.appendChild(marker);
+      entry.appendChild(year);
+      entry.appendChild(tag);
+      entry.appendChild(title);
+      entry.appendChild(desc);
+
+      if (group.events.length > 1) {
+        const more = document.createElement('div');
+        more.style.marginTop = '12px';
+        more.style.fontFamily = '\'IBM Plex Mono\', monospace';
+        more.style.fontSize = '11px';
+        more.style.color = 'var(--rust-bright)';
+        more.textContent = `+ ${group.events.length - 1} more event${group.events.length - 1 === 1 ? '' : 's'} in this quarter`;
+        entry.appendChild(more);
+      }
+
+      return entry;
+    }
+
+    async function loadTimelineContent() {
+      const preview = document.getElementById('timeline-preview-list');
+      const pageList = document.getElementById('timeline-page-list');
+      if (!preview && !pageList) return;
+
+      try {
+        const response = await fetch(`Events.csv?ts=${Date.now()}`, { cache: 'no-store' });
+        const csv = await response.text();
+        const events = parseTimelineCSV(csv);
+        const grouped = groupTimelineByDate(events);
+        const previewGroups = grouped.slice(0, 4);
+        const pageGroups = grouped.slice(0, 4);
+
+        if (preview) {
+          const fragment = document.createDocumentFragment();
+          previewGroups.forEach(group => fragment.appendChild(buildTimelinePreviewEntry(group)));
+          preview.replaceChildren(fragment);
+        }
+
+        if (pageList) {
+          const fragment = document.createDocumentFragment();
+          pageGroups.forEach(group => fragment.appendChild(buildTimelinePageEntry(group)));
+          pageList.replaceChildren(fragment);
+        }
+      } catch (err) {
+        if (preview) {
+          preview.innerHTML = `
+            <div class="timeline-entry">
+              <div>
+                <div class="tl-year">CSV</div>
+              </div>
+              <div>
+                <div class="tl-tag crisis">Unavailable</div>
+                <div class="tl-event-title">Timeline data could not load</div>
+                <div class="tl-event-desc">The homepage preview could not read Events.csv.</div>
+              </div>
+            </div>
+          `;
+        }
+        if (pageList) {
+          pageList.innerHTML = `
+            <div class="timeline-page-entry">
+              <div class="timeline-page-date" style="color:var(--rust-bright);">CSV</div>
+              <div class="tl-tag crisis">Unavailable</div>
+              <div class="tl-event-title">Timeline data could not load</div>
+              <div class="tl-event-desc">The timeline section could not read Events.csv.</div>
+            </div>
+          `;
+        }
+      }
+    }
+
     // ── INIT ──
     document.addEventListener('DOMContentLoaded', initReveal);
+    document.addEventListener('DOMContentLoaded', loadTimelineContent);
     window.addEventListener('load', initReveal);
   </script>
 </body>
