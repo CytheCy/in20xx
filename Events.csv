@@ -383,3 +383,7 @@ Date,Title,Description,Category
 2056 Q1,Electron cutter,High energy cutting tool used by robots to cut stainless steel,Manufacturing / Robotics
 2056 Q1,C-Plast,Advanced polymer material used by robots for antenna construction,Materials Science
 2056 Q1,Smart composite walls,Walls that filter noise and vibrations and transform storm sounds into abstract audio,Architecture / Smart Materials
+2056 Q2,Truck flywheel,Component repurposed for regenerative braking and used in the hand-crank flywheel generator,Power Generation
+2056 Q2,Wells,Deep shafts in the colony for heat management and water collection,Infrastructure
+2056 Q2,Bug trap,Box used to collect insects for food production,Agriculture / Food
+2056 Q2,Steel bar,Bar used for digging and shelter construction,Tools / Construction
