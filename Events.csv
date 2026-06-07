@@ -387,3 +387,10 @@ Date,Title,Description,Category
 2056 Q2,Wells,Deep shafts in the colony for heat management and water collection,Infrastructure
 2056 Q2,Bug trap,Box used to collect insects for food production,Agriculture / Food
 2056 Q2,Steel bar,Bar used for digging and shelter construction,Tools / Construction
+2056 Q3,Cool suits,Protective clothing with cooling capabilities powered by charged batteries,Clothing / Personal Equipment
+2056 Q3,Mycelium clothing,Lightweight fabrics grown in mushroom farms,Clothing / Biomaterials
+2056 Q3,Microbe spray,A bottle containing engineered microbe mist that cleans air by removing carbon methane particulates and pathogens,Environmental Technology / Air Purification
+2056 Q3,DNA printer,A machine for synthesizing DNA,Biotechnology / Manufacturing
+2056 Q3,Protein printer,Equipment for creating proteins from DNA files,Biotechnology / Manufacturing
+2056 Q3,G-biotic serum,A substance used to dissolve stone for drilling,Industrial Materials / Mining
+2056 Q3,Woven graphene tube,A heavy-duty component used to secure rods in stone,Advanced Materials / Construction
