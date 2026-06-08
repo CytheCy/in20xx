@@ -103,7 +103,7 @@ Date,Title,Description,Category
 2044 Q3,Algae cultivation system,Industrial saltwater algae farming removing heavy metals and producing food fuel and fertilizer,Agriculture / Energy
 2044 Q3,Life recording technology,Technology used to record life experiences for VR simulations,Media / Virtual Reality
 2044 Q3,VR hometown simulation,Virtual reality recreations of hometowns using personal and collective memories,Virtual Reality
-2044 Q4,Personality clones,Data-driven avatars that mimic individuals allowing interaction after death,AI / Virtual Identity
+2044 Q4,Personality clones,AI representations of real individuals capturing their movements behaviors and decision-making patterns. Used as teachers advisors therapists and in other roles. Avatars that mimic individuals allowing interaction after death,AI / Virtual Identity
 2044 Q4,VR world for posthumous avatars,Virtual environments where digital versions of deceased individuals reside,Virtual Reality
 2044 Q4,Augmented reality glasses,Wearable AR devices replacing foldable personal devices,Consumer Tech / AR
 2044 Q4,Yeast-based food products,Synthetic foods derived from yeast mimicking traditional foods,Food Tech
@@ -394,3 +394,7 @@ Date,Title,Description,Category
 2056 Q3,Protein printer,Equipment for creating proteins from DNA files,Biotechnology / Manufacturing
 2056 Q3,G-biotic serum,A substance used to dissolve stone for drilling,Industrial Materials / Mining
 2056 Q3,Woven graphene tube,A heavy-duty component used to secure rods in stone,Advanced Materials / Construction
+2056 Q4,Open Floor,Virtual platform where adults post discover and vote on current issues facing the United Tribes featuring Position Avatars that summarize live conversations,Governance / Civic Technology
+2056 Q4,Position Avatar,AI-generated representation of a user's stance on issues created by synthesizing their explanations and interactions on Open Floor,Artificial Intelligence / Social Media
+2056 Q4,Q.T. Gateway,Device enabling quantum teleportation for long-distance communication demonstrated in a senior project by Maris Carter to communicate with the Moon,Quantum Technology / Communications
+2056 Q4,LiDAR Spectrometers,Sensors capable of detecting airborne chemicals associated with crime or distress used by AI for crime detection,Security / Sensors and Detection Systems
