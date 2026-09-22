@@ -1,0 +1,17 @@
+baseURL = "https://in20xx.com/"
+languageCode = "en-us"
+title = "In 20xx — Sci-Fi & Futurism"
+publishDir = "."
+resourceDir = ".hugo_resources"
+
+# Hugo owns only /read. The existing static homepage and timeline stay untouched.
+disableKinds = ["home", "taxonomy", "term", "RSS", "sitemap", "robotsTXT", "404"]
+
+[outputs]
+section = ["HTML"]
+page = ["HTML"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = false

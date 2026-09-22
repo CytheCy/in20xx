@@ -1,0 +1,6 @@
+{{- $parts := split .File.ContentBaseName "_" -}}
+{{- if eq (len $parts) 3 -}}
+  {{- printf "%s-%s-%s" (index $parts 2) (index $parts 0) (index $parts 1) -}}
+{{- else -}}
+  {{- "1900-01-01" -}}
+{{- end -}}

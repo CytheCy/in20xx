@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ .Description }}">
+  <title>{{ .Title }} — In 20xx</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Syne:wght@400;500;600;700&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/read/read.css">
+</head>
+<body class="story-page">
+  <nav class="site-nav" aria-label="Primary navigation">
+    <a class="site-logo" href="/index.html"><i aria-hidden="true"></i>IN 20<span>xx</span></a>
+    <div class="site-links">
+      <a href="/index.html">Home</a>
+      <a href="/timeline.html">Timeline</a>
+      <a class="active" href="/read/">Read</a>
+      <a class="subscribe" href="https://www.youtube.com/@In20xx" target="_blank" rel="noopener">Subscribe on YouTube</a>
+    </div>
+  </nav>
+
+  {{- $imagePattern := printf "%s.*" .File.ContentBaseName -}}
+  {{- $image := .Parent.Resources.GetMatch $imagePattern -}}
+  {{- $storyDate := partial "story-date.html" . | strings.TrimSpace -}}
+  <main class="story-shell">
+    <header class="story-header">
+      {{ with $image }}
+        <img class="story-banner" src="{{ .RelPermalink }}" alt="Artwork for {{ $.Title }}">
+      {{ else }}
+        <div class="story-banner story-banner--missing" aria-hidden="true"></div>
+      {{ end }}
+      <div class="story-intro">
+        <div>
+          <a class="back-link" href="/read/">← All stories</a>
+          <time datetime="{{ $storyDate }}">
+            {{ time.AsTime $storyDate | time.Format "January 2, 2006" }}
+          </time>
+          <h1>{{ .Title }}</h1>
+          <p>{{ .Description }}</p>
+        </div>
+        {{ with .Params.audio_id }}
+          <a class="read-aloud" href="#read-aloud"><span aria-hidden="true">▶</span> Read aloud</a>
+        {{ end }}
+      </div>
+    </header>
+
+    <article class="story-prose">
+      <div class="story-prose__inner">{{ .Content }}</div>
+    </article>
+
+    {{- $current := .RelPermalink -}}
+    {{- $related := slice -}}
+    {{- range .Parent.RegularPages -}}
+      {{- if ne .RelPermalink $current -}}
+        {{- $related = $related | append (dict "page" . "date" (partial "story-date.html" . | strings.TrimSpace)) -}}
+      {{- end -}}
+    {{- end -}}
+    <aside class="more-stories" aria-label="Other stories">
+      <div class="more-stories__label">Other stories</div>
+      <div class="more-stories__rail">
+        {{ range sort $related "date" "desc" }}
+          {{ partial "story-card.html" .page }}
+        {{ else }}
+          <a class="only-story" href="/read/">Return to the story archive →</a>
+        {{ end }}
+      </div>
+    </aside>
+  </main>
+
+  {{ with .Params.audio_id }}
+    <section class="audio-overlay" id="read-aloud" aria-label="Read aloud player">
+      <a class="audio-overlay__backdrop" href="#" aria-label="Close player"></a>
+      <div class="audio-player">
+        <a class="audio-player__close" href="#" aria-label="Close player">×</a>
+        <p>Listen to {{ $.Title }}</p>
+        <div class="redcirclePlayer-{{ . }}"></div>
+      </div>
+    </section>
+    <script async defer onload="redcircleIframe();" src="https://api.podcache.net/embedded-player/sh/dd44d057-b58f-4ee0-ad5b-8c7a41368c72/ep/{{ . }}"></script>
+  {{ end }}
+</body>
+</html>

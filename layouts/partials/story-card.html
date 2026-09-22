@@ -1,0 +1,19 @@
+{{- $story := . -}}
+{{- $imagePattern := printf "%s.*" $story.File.ContentBaseName -}}
+{{- $image := $story.Parent.Resources.GetMatch $imagePattern -}}
+{{- $storyDate := partial "story-date.html" $story | strings.TrimSpace -}}
+<a class="story-card" href="{{ $story.RelPermalink }}">
+  {{ with $image }}
+    <img class="story-card__image" src="{{ .RelPermalink }}" alt="" loading="lazy">
+  {{ else }}
+    <div class="story-card__image story-card__image--missing" aria-hidden="true"></div>
+  {{ end }}
+  <div class="story-card__body">
+    <time datetime="{{ $storyDate }}">
+      {{ time.AsTime $storyDate | time.Format "January 2, 2006" }}
+    </time>
+    <h2>{{ $story.Title }}</h2>
+    <p>{{ $story.Description }}</p>
+    <span>Read story <b aria-hidden="true">→</b></span>
+  </div>
+</a>

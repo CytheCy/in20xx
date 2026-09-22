@@ -4,3 +4,7 @@
 !.dev.vars.example
 .env*
 !.env.example
+
+# Hugo build artifacts
+.hugo_build.lock
+.hugo_resources/
