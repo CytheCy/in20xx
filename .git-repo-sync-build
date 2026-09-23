@@ -1,0 +1,12 @@
+#!/bin/bash
+set -euo pipefail
+cd "$(dirname "$0")"
+
+if command -v hugo >/dev/null 2>&1; then
+  hugo --quiet
+elif command -v podman >/dev/null 2>&1; then
+  podman run --rm -v "$PWD:/src:Z" -w /src docker.io/hugomods/hugo:exts-0.150.0 hugo --quiet
+else
+  echo "Hugo or Podman is required to build the Read section." >&2
+  exit 1
+fi
