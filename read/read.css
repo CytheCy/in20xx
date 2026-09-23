@@ -65,7 +65,11 @@ a { color: inherit; }
   text-decoration: none;
 }
 
-.site-logo span, .read-heading h1 span { color: var(--teal); }
+.site-logo__text { color: inherit; }
+.site-logo__text b, .read-heading h1 span {
+  color: var(--teal);
+  font-weight: inherit;
+}
 
 .site-logo i {
   animation: pulse 2s ease-in-out infinite;
